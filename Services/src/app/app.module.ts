@@ -19,6 +19,14 @@ import { AccommodationTypeDetailsComponent } from './accommodation-type-details/
 import { CommentComponent } from './comment/comment.component';
 import { CommentDetailsComponent } from './comment-details/comment-details.component';
 import { AccommodationDetailsComponent } from './accommodation-details/accommodation-details.component';
+import { PlaceComponent } from './place/place.component';
+import { PlaceDetailsComponent } from './place-details/place-details.component';
+import { RegionComponent } from './region/region.component';
+import { RegionDetailsComponent } from './region-details/region-details.component';
+import { RoomReservationsComponent } from './room-reservations/room-reservations.component';
+import { RoomReservationsDetailsComponent } from './room-reservations-details/room-reservations-details.component';
+import { RoomComponent } from './room/room.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
 
 
 const Routes = [
@@ -44,7 +52,15 @@ const Routes = [
     AccommodationTypeDetailsComponent,
     CommentComponent,
     CommentDetailsComponent,
-    AccommodationDetailsComponent
+    AccommodationDetailsComponent,
+    PlaceComponent,
+    PlaceDetailsComponent,
+    RegionComponent,
+    RegionDetailsComponent,
+    RoomReservationsComponent,
+    RoomReservationsDetailsComponent,
+    RoomComponent,
+    RoomDetailsComponent
   ],
   imports: [
     BrowserModule,

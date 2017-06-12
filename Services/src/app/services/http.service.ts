@@ -77,6 +77,54 @@ export class HttpProductService{
         return this.http.get("http://localhost:54042/api/Comments/" + Id).map(this.extractOneProduct);
     }
 
+//PLACE-------------------------------------------------------------------------------
+ 
+  getPlaces(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Places");        
+    }
+
+  getOnePlace(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Places/" + Id).map(this.extractOneProduct);
+    }
+
+//REGION-----------------------------------------------------------------------------
+
+  getRegions(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Regions");        
+    }
+
+  getOneRegion(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Regions/" + Id).map(this.extractOneProduct);
+    }
+
+//ROOM RESERVATIONS------------------------------------------------------------------
+
+  getReservations(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/RoomReservations");        
+    }
+
+  getOneReservation(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/RoomReservations/" + Id).map(this.extractOneProduct);
+    }
+
+//ROOM-------------------------------------------------------------------------------
+
+ getRooms(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Rooms");        
+    }
+
+  getOneRoom(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Rooms/" + Id).map(this.extractOneProduct);
+    }
+
   private extractOneProduct(res: Response) {
         let body = res.json();
         return body || {};
