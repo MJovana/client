@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SimpleData } from "./services/simple-data.service";
 import { HttpProductService } from './services/http.service';
+import { UserService } from './registration/user.service';
 
 import { AppComponent } from './app.component';
 import { SimpleComponent } from './simple/simple.component';
@@ -27,6 +28,7 @@ import { RoomReservationsComponent } from './room-reservations/room-reservations
 import { RoomReservationsDetailsComponent } from './room-reservations-details/room-reservations-details.component';
 import { RoomComponent } from './room/room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 
 const Routes = [
@@ -60,7 +62,8 @@ const Routes = [
     RoomReservationsComponent,
     RoomReservationsDetailsComponent,
     RoomComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +71,7 @@ const Routes = [
     HttpModule,
     RouterModule.forRoot(Routes)
   ],
-  providers: [SimpleData, HttpProductService],
+  providers: [SimpleData, HttpProductService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
