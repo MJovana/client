@@ -1,9 +1,17 @@
 <h1>
   {{title}}
+
+  <ol>
+    <li><a [routerLink]="['/home']">Home</a></li>
+    <li><a [routerLink]="['/product']">Contry</a></li>
+    <li><a [routerLink]="['/product/1']">One contry</a></li>
+    <li><a [routerLink]="['/acTypes']">Accommodation type</a></li>
+    <li><a [routerLink]="['/acTypes/1']">One accommodation type</a></li>
+    <li><a [routerLink]="['/ac']">Accommodation</a></li>
+    <li><a [routerLink]="['/ac/1']">One accommodation</a></li>   
+    <li><a [routerLink]="['/comment']">comment</a></li>
+    <li><a [routerLink]="['/comment/1']">One comment</a></li>
+  </ol>
+
+  <router-outlet></router-outlet>
 </h1>
-
-<app-simple></app-simple>
-<app-simple2></app-simple2>
-
-<h2>Products</h2>
-<app-product></app-product>

@@ -1,0 +1,9 @@
+<p>
+  accommodation-types-details works! Id: {{Id}}!
+</p>
+<div *ngIf="isLoading">
+  Loading...
+</div>
+<div *ngIf="!isLoading">
+  Name: {{acType.Name}}
+</div>

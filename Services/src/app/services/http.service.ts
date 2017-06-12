@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core"
 import { Http, Response, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HttpProductService{
@@ -12,9 +13,16 @@ export class HttpProductService{
 
     }
 
+//COUNTRY-------------------------------------------------------------------------
+
     getProducts(): Observable<any> {
 
         return this.http.get("http://localhost:54042/api/Countries");        
+    }
+
+    getOneProduct(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Countries/" + Id).map(this.extractOneProduct);
     }
 
     postProduct(): Observable<any>  {
@@ -32,4 +40,45 @@ export class HttpProductService{
             Price: 15
         }), opts);
   }
+
+//ACCOMMODATION TYPE ----------------------------------------------------------------
+
+     getACTypes(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/AccommodationTypes");        
+    }
+
+    getOneACType(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/AccommodationTypes/" + Id).map(this.extractOneProduct);
+    }
+
+//ACCOMMODATION --------------------------------------------------------------------
+
+    getAC(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Accommodations");        
+    }
+
+    getOneAC(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Accommodations/" + Id).map(this.extractOneProduct);
+    }
+
+//COMMENT----------------------------------------------------------------------------
+
+    getComments(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Comments");        
+    }
+
+    getOneComment(Id: string): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/Comments/" + Id).map(this.extractOneProduct);
+    }
+
+  private extractOneProduct(res: Response) {
+        let body = res.json();
+        return body || {};
+    }
 }
