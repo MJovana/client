@@ -8,7 +8,6 @@ export class HttpProductService{
 
     data: any;
 
-
     constructor (private http: Http){
 
     }

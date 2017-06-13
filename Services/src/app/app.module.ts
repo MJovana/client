@@ -6,7 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SimpleData } from "./services/simple-data.service";
 import { HttpProductService } from './services/http.service';
-import { UserService } from './registration/user.service';
+import { UserService } from './services/user.service';
 
 import { AppComponent } from './app.component';
 import { SimpleComponent } from './simple/simple.component';
@@ -29,6 +29,8 @@ import { RoomReservationsDetailsComponent } from './room-reservations-details/ro
 import { RoomComponent } from './room/room.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const Routes = [
@@ -38,7 +40,8 @@ const Routes = [
   {path: "acTypes", component: AccommodationTypesComponent},
   {path: "product/:Id", component: ProductDetailsComponent},
   {path: "acTypes/:Id", component: AccommodationTypeDetailsComponent},
-  {path: "registration", component: RegistrationComponent}
+  {path: "registration", component: RegistrationComponent},
+  {path: "login", component: LoginComponent}
 ]
 
 
@@ -64,7 +67,9 @@ const Routes = [
     RoomReservationsDetailsComponent,
     RoomComponent,
     RoomDetailsComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    LoginComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
