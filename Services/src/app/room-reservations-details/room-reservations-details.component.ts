@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpProductService } from '../services/http.service';
+import { HttpRoomReservationService } from '../services/http.roomReservationService';
 
 @Component({
   selector: 'app-room-reservations-details',
@@ -13,7 +13,7 @@ export class RoomReservationsDetailsComponent implements OnInit {
   isLoading: boolean = true;
   roomr: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpProductService: HttpProductService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpRoomReservationService: HttpRoomReservationService) {
     activatedRoute.params.subscribe( params => { this.fetchProduct(params) });
    }
 
@@ -22,7 +22,7 @@ export class RoomReservationsDetailsComponent implements OnInit {
 
   fetchProduct(params: any){
     this.Id = params["Id"];
-    this.httpProductService.getOneReservation(this.Id).subscribe(
+    this.httpRoomReservationService.getOneReservation(this.Id).subscribe(
       (res: Response) => 
         {
           this.roomr = res;

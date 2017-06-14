@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpProductService } from '../services/http.service';
+import { HttpAccommodationTypeService } from '../services/http.accommodationTypeService';
 
 @Component({
   selector: 'app-accommodation-type-details',
@@ -13,7 +13,7 @@ export class AccommodationTypeDetailsComponent implements OnInit {
   isLoading: boolean = true;
   acType: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpProductService: HttpProductService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpAccommodationTypeService: HttpAccommodationTypeService) {
     activatedRoute.params.subscribe( params => { this.fetchProduct(params) });
    }
 
@@ -22,7 +22,7 @@ export class AccommodationTypeDetailsComponent implements OnInit {
 
   fetchProduct(params: any){
     this.Id = params["Id"];
-    this.httpProductService.getOneProduct(this.Id).subscribe(
+    this.httpAccommodationTypeService.getOneACType(this.Id).subscribe(
       (res: Response) => 
         {
           this.acType = res;

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpProductService } from '../services/http.service';
+import { HttpRoomService } from '../services/http.roomService';
 
 
 @Component({
@@ -14,7 +14,7 @@ export class RoomDetailsComponent implements OnInit {
   isLoading: boolean = true;
   room: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpProductService: HttpProductService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpRoomService: HttpRoomService) {
     activatedRoute.params.subscribe( params => { this.fetchProduct(params) });
    }
 
@@ -23,7 +23,7 @@ export class RoomDetailsComponent implements OnInit {
 
   fetchProduct(params: any){
     this.Id = params["Id"];
-    this.httpProductService.getOneRoom(this.Id).subscribe(
+    this.httpRoomService.getOneRoom(this.Id).subscribe(
       (res: Response) => 
         {
           this.room = res;

@@ -1,20 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpProductService } from '../services/http.service'
+import { HttpRegionService } from '../services/http.regionService'
+import {Region} from './region.model'
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-region',
   templateUrl: './region.component.html',
   styleUrls: ['./region.component.css'],
-  providers: [HttpProductService]
+  providers: [HttpRegionService]
 })
 export class RegionComponent implements OnInit {
 
-  region : Object [];
-  constructor(private httpProductService: HttpProductService) { }
+   regions : Object [];
+  region : Region;
+  constructor(private httpRegionService: HttpRegionService) { }
 
  ngOnInit() {
-   this.httpProductService.getRegions().subscribe((res: Response) => {this.region = res.json(); console.log(this.region)});
+   this.httpRegionService.getRegions().subscribe((res: Response) => 
+   {this.regions = res.json(); console.log(this.regions)});
   }
+  addRegion(newRegion: Region, form: NgForm) : void{
+      this.httpRegionService.postRegion(newRegion).subscribe(this.onPost);
+      form.reset();
+    }    
+
+  onPost(res : any) : void{
+      alert("Post!");
+      console.log(res.json());
+    }
 
 }

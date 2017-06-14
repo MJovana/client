@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { HttpProductService } from '../services/http.service'
+import {Country} from './product.model'
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-product',
@@ -10,21 +12,31 @@ import { HttpProductService } from '../services/http.service'
 })
 export class ProductComponent implements OnInit {
   
-  products : Object [];
+  countries : Object [];
+  country: Country;
 
   constructor(private httpProductService: HttpProductService) { }
 
-  ngOnInit() {
-    this.httpProductService.getProducts().subscribe((res: Response) => {this.products = res.json(); console.log(this.products)});
-  }
+   ngOnInit() {
+     this.httpProductService.getProducts().subscribe((res: Response) => {this.countries = res.json(); console.log(this.countries)});
+   }
 
-  addProduct() : void{
-    this.httpProductService.postProduct().subscribe(this.onPost)
-  }
+ addCountry(newCountry: Country, form: NgForm) : void{
+      this.httpProductService.postProduct(newCountry).subscribe(this.onPost);
+      form.reset();
+    }    
 
   onPost(res : any) : void{
-    alert("Post!");
-    console.log(res.json());
-  }
+      alert("Post!");
+      console.log(res.json());
+    }
+
+    deleteCountry(id: number) {
+      this.httpProductService.delete(id).subscribe(() => {this.httpProductService.getProducts() });
+    }
+
+  // addProduct() : void{
+  //   this.httpProductService.postProduct().subscribe(this.onPost)
+  // }
 
 }

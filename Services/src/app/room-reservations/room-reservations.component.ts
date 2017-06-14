@@ -1,20 +1,35 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpProductService } from '../services/http.service'
+import { HttpRoomReservationService } from '../services/http.roomReservationService'
+import {RoomReservation} from './room-reservation.model'
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-room-reservations',
   templateUrl: './room-reservations.component.html',
-  styleUrls: ['./room-reservations.component.css']
+  styleUrls: ['./room-reservations.component.css'],
+  providers: [HttpRoomReservationService]
 })
 export class RoomReservationsComponent implements OnInit {
 
-  roomr : Object [];
+  roomRs : Object [];
+  roomR : RoomReservation;
 
-  constructor(private httpProductService: HttpProductService) { }
+  constructor(private httpRoomReservationService: HttpRoomReservationService) { }
 
   ngOnInit() {
-   this.httpProductService.getReservations().subscribe((res: Response) => {this.roomr = res.json(); console.log(this.roomr)});
+   this.httpRoomReservationService.getReservations().subscribe((res: Response) => 
+   {this.roomRs = res.json(); console.log(this.roomRs)});
   }
+   addRoomReservation(newRoomReservation: RoomReservation, form: NgForm) : void{
+      this.httpRoomReservationService.postRoomReservation(newRoomReservation).subscribe(this.onPost);
+      form.reset();
+    }    
+
+  onPost(res : any) : void{
+      alert("Post!");
+      console.log(res.json());
+    }
 
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpProductService } from '../services/http.service';
+import { HttpCommentService } from '../services/http.commentService';
 
 @Component({
   selector: 'app-comment-details',
@@ -13,7 +13,7 @@ export class CommentDetailsComponent implements OnInit {
   isLoading: boolean = true;
   comment: any;
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpProductService: HttpProductService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpCommentService: HttpCommentService) {
     activatedRoute.params.subscribe( params => { this.fetchProduct(params) });
    }
 
@@ -22,7 +22,7 @@ export class CommentDetailsComponent implements OnInit {
 
   fetchProduct(params: any){
     this.Id = params["Id"];
-    this.httpProductService.getOneComment(this.Id).subscribe(
+    this.httpCommentService.getOneComment(this.Id).subscribe(
       (res: Response) => 
         {
           this.comment = res;

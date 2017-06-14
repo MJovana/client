@@ -1,7 +1,46 @@
-<h2>A list of countries</h2>
+<h3>Add country</h3>
+<form #f="ngForm" (ngSubmit)="addCountry(f.value, f)">
+     <div>
+      <label for="Name">Name</label>
+      <input type="text" name="Name" ngModel>
+    </div>
+    <div>
+      <label for="Code">Code</label>
+      <input type="text" name="Code" ngModel>
+    </div>
+  <input type="submit" value="Add"/>
+</form>
+
+<!--<h3>Countries</h3>
 <div>
   <ul>
-    <li *ngFor="let product of products">{{product.Name}}</li>
+    <li *ngFor="let country of countries"> {{country.Name}} </li>
   </ul>
+</div>-->
+
+<h3>Countries</h3>
+<div>
+ <!--<form #f="ngForm1" (ngSubmit)="onSubmitDelete(f.value,f)"> -->
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "Name">Name</label>
+          </td>
+          <td>
+              <label for = "Code">Code</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let country of countries">
+        <td>{{country.Name}}</td>
+        <td>{{country.Code}}</td>
+        <td><button (click)='deleteCountry(country.Id)' type="button">Delete</button></td>
+      </tr>
+    </table>
+<!--</form>-->
 </div>
-<button (click)=addProduct()>Add this product!</button>
+
+

@@ -1,21 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpProductService } from '../services/http.service'
+import { HttpAccommodationTypeService } from '../services/http.accommodationTypeService'
+import {AccommodationType} from './accommodation-types.model'
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-accommodation-types',
   templateUrl: './accommodation-types.component.html',
   styleUrls: ['./accommodation-types.component.css'],
-  providers: [HttpProductService]
+  providers: [HttpAccommodationTypeService]
 })
 export class AccommodationTypesComponent implements OnInit {
 
-  acType : Object [];
+  accommodationTypes : Object [];
+  accommodationType : AccommodationType;
 
-  constructor(private httpProductService: HttpProductService) { }
+  constructor(private httpAccommodationTypeService: HttpAccommodationTypeService) { }
 
   ngOnInit() {
-    this.httpProductService.getACTypes().subscribe((res: Response) => {this.acType = res.json(); console.log(this.acType)});
+    this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
   }
+  addAccommodationType(newAccommodationType: AccommodationType, form: NgForm) : void{
+      this.httpAccommodationTypeService.postAccommodationType(newAccommodationType).subscribe(this.onPost);
+      form.reset();
+    }    
+
+  onPost(res : any) : void{
+      alert("Post!");
+      console.log(res.json());
+    }
 
 }

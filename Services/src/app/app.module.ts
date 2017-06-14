@@ -6,6 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { SimpleData } from "./services/simple-data.service";
 import { HttpProductService } from './services/http.service';
+import { HttpAccommodationService } from './services/http.accommodationService';
+import { HttpAccommodationTypeService } from './services/http.accommodationTypeService';
+import { HttpCommentService } from './services/http.commentService';
+import { HttpPlaceService } from './services/http.placeService';
+import { HttpRegionService } from './services/http.regionService';
+import { HttpRoomService } from './services/http.roomService';
+import { HttpRoomReservationService } from './services/http.roomReservationService';
+
 import { UserService } from './services/user.service';
 
 import { AppComponent } from './app.component';
@@ -41,7 +49,8 @@ const Routes = [
   {path: "product/:Id", component: ProductDetailsComponent},
   {path: "acTypes/:Id", component: AccommodationTypeDetailsComponent},
   {path: "registration", component: RegistrationComponent},
-  {path: "login", component: LoginComponent}
+  {path: "login", component: LoginComponent},
+   {path: "ac", component: AccommodationComponent},
 ]
 
 
@@ -77,7 +86,16 @@ const Routes = [
     HttpModule,
     RouterModule.forRoot(Routes)
   ],
-  providers: [SimpleData, HttpProductService, UserService],
+  providers: [SimpleData,
+             HttpProductService,
+             HttpAccommodationService, 
+             HttpAccommodationTypeService,
+             HttpCommentService,
+             HttpPlaceService,
+             HttpRegionService,
+             HttpRoomService,
+             HttpRoomReservationService,             
+             UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

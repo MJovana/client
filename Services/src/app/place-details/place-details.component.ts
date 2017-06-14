@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { HttpProductService } from '../services/http.service';
+import { HttpPlaceService } from '../services/http.placeService';
 
 @Component({
   selector: 'app-place-details',
@@ -11,9 +11,9 @@ export class PlaceDetailsComponent implements OnInit {
 
    Id: string = "-1";
   isLoading: boolean = true;
-  ac: any;
+  place: any;
 
-   constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpProductService: HttpProductService) {
+   constructor(private router: Router, private activatedRoute: ActivatedRoute, private httpPlaceService: HttpPlaceService) {
     activatedRoute.params.subscribe( params => { this.fetchProduct(params) });
    }
 
@@ -22,11 +22,11 @@ export class PlaceDetailsComponent implements OnInit {
 
   fetchProduct(params: any){
     this.Id = params["Id"];
-    this.httpProductService.getOnePlace(this.Id).subscribe(
+    this.httpPlaceService.getOnePlace(this.Id).subscribe(
       (res: Response) => 
         {
-          this.ac = res;
-          console.log(this.ac)
+          this.place = res;
+          console.log(this.place)
           this.isLoading = false;
         }
     );

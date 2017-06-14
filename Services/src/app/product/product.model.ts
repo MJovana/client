@@ -1,7 +1,11 @@
-export class Product {
-  name: string;
+export class Country {
+    Id: number;
+    Name: string;
+    Code: string;
 
-  constructor(name: string) {
-    this.name = name;
-  }
+    constructor(Id:number, Name: string, Code: string) {
+        this.Id = Id;
+        this.Name = Name;
+        this.Code = Code;
+    }
 }
