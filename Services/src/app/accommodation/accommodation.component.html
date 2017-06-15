@@ -28,20 +28,43 @@
       <label for="ImageURL">ImageURL</label>
       <input type="text" name="ImageURL" ngModel>
     </div>
-    <div>
+    <!--<div>
       <label for="Approved">Approved</label>
       <input type="text" name="Approved" ngModel>
+    </div>-->
+    <div>
+      <select name="PlaceId" id="PlaceId" [(ngModel)]="PlaceId">
+        <option *ngFor = "let place of places" value={{place.Id}} >{{place.Name}}</option>
+      </select>
     </div>
     <div>
-      <label for="AccommodationId">AccommodationId</label>
-      <input type="text" name="AccommodationId" ngModel>
+      <select name="AccommodationTypeId" id="AccommodationTypeId" [(ngModel)]="AccommodationTypeId">
+        <option *ngFor = "let acType of acTypes" value={{acType.Id}} >{{acType.Name}}</option>
+      </select>
+    </div>
+    <div>
+      <select name="UserId" id="UserId" [(ngModel)]="UserId">
+        <option *ngFor = "let user of users" value={{user.Id}} >{{user.Username}}</option>
+      </select>
     </div>
   <input type="submit" value="Add"/>
 </form>
 
-<h3>Accommodation</h3>
+<h3>Accommmodations</h3>
 <div>
-  <ul>
-    <li *ngFor="let accommodation of accommodations"> {{accommodation.Name}} </li>
-  </ul>
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "Name">Name</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let accommmodation of accommmodations">
+        <td>{{accommmodation.Name}}</td>
+        <td><button (click)='deleteAccommmodation(accommmodation.Id)' type="button">Delete</button></td>
+      </tr>
+    </table>
 </div>

@@ -33,8 +33,13 @@ export class HttpAccommodationTypeService{
         opts.headers = headers;
 
         return this.http.post(
-        'http://localhost:54042/api/AccommodationTypes', accommodationType, opts);
+        'http://localhost:54042/api/AccommodationType', accommodationType, opts);
   }
+
+  delete(Id: number) {
+      return this.http.delete("http://localhost:54042/api/AccommodationType/" + Id);
+  }
+
    private extractOneProduct(res: Response) {
         let body = res.json();
         return body || {};

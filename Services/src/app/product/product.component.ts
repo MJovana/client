@@ -23,16 +23,21 @@ export class ProductComponent implements OnInit {
 
  addCountry(newCountry: Country, form: NgForm) : void{
       this.httpProductService.postProduct(newCountry).subscribe(this.onPost);
-      form.reset();
+      form.reset();  
     }    
 
-  onPost(res : any) : void{
+  onPost(res : any) : void{    
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
     }
 
     deleteCountry(id: number) {
-      this.httpProductService.delete(id).subscribe(() => {this.httpProductService.getProducts() });
+      this.httpProductService.delete(id).subscribe(() => {this.refresh(); });
+    }
+
+    refresh() {
+      this.httpProductService.getProducts().subscribe((res: Response) => {this.countries = res.json(); console.log(this.countries)});
     }
 
   // addProduct() : void{

@@ -33,6 +33,12 @@ export class HttpRoomReservationService{
         return this.http.post(
         'http://localhost:54042/api/RoomReservations', roomReservation, opts);
   }
+
+
+  delete(Id: number) {
+      return this.http.delete("http://localhost:54042/api/RoomReservations/" + Id);
+    }
+
    private extractOneProduct(res: Response) {
         let body = res.json();
         return body || {};

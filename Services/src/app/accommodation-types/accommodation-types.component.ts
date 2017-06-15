@@ -25,9 +25,18 @@ export class AccommodationTypesComponent implements OnInit {
       form.reset();
     }    
 
+    deleteAccommodationType(id: number) {
+      this.httpAccommodationTypeService.delete(id).subscribe(() => {this.refresh(); });
+    }
+
   onPost(res : any) : void{
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
+    }
+
+    refresh() {
+       this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
     }
 
 }

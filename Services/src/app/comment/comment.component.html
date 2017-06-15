@@ -17,7 +17,19 @@
 
 <h3>Comment</h3>
 <div>
-  <ul>
-    <li *ngFor="let comment of comments"> {{comment.Name}} </li>
-  </ul>
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "Text">Comment:</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let comment of comments">
+        <td>{{comment.Text}}</td>
+        <td><button (click)='deleteComment(comment.Id)' type="button">Delete</button></td>
+      </tr>
+    </table>
 </div>

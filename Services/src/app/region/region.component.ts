@@ -17,17 +17,25 @@ export class RegionComponent implements OnInit {
   constructor(private httpRegionService: HttpRegionService) { }
 
  ngOnInit() {
-   this.httpRegionService.getRegions().subscribe((res: Response) => 
-   {this.regions = res.json(); console.log(this.regions)});
+   this.httpRegionService.getRegions().subscribe((res: Response) =>  {this.regions = res.json(); console.log(this.regions)});
   }
   addRegion(newRegion: Region, form: NgForm) : void{
       this.httpRegionService.postRegion(newRegion).subscribe(this.onPost);
       form.reset();
-    }    
+    }  
+
+    deleteRegion(id: number) {
+      this.httpRegionService.delete(id).subscribe(() => {this.refresh(); });
+    }  
 
   onPost(res : any) : void{
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
+    }
+
+     refresh() {
+      this.httpRegionService.getRegions().subscribe((res: Response) =>  {this.regions = res.json(); console.log(this.regions)});
     }
 
 }

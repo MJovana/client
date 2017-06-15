@@ -34,6 +34,11 @@ export class HttpPlaceService{
         return this.http.post(
         'http://localhost:54042/api/Places', place, opts);
   }
+
+  delete(Id: number) {
+      return this.http.delete("http://localhost:54042/api/Places/" + Id);
+    }
+
    private extractOneProduct(res: Response) {
         let body = res.json();
         return body || {};

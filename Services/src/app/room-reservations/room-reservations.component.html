@@ -25,7 +25,23 @@
 
 <h3>RoomReservation</h3>
 <div>
-  <ul>
-    <li *ngFor="let roomReservation of roomReservations"> {{roomReservation.Name}} </li>
-  </ul>
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "RoomId">RoomId</label>
+          </td>
+          <td>
+              <label for = "UserId">UserId</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let roomReservation of roomReservations">
+        <td>{{roomReservation.RoomId}}</td>
+        <td>{{roomReservation.UserId}}</td>
+        <td><button (click)='deleteRoomReservation(roomReservation.Id)' type="button">Delete</button></td>
+      </tr>
+    </table>
 </div>

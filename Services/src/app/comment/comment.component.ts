@@ -18,8 +18,7 @@ export class CommentComponent implements OnInit {
   constructor(private httpCommentService: HttpCommentService) { }
 
   ngOnInit() {
-   this.httpCommentService.getComments().subscribe((res: Response) => 
-   {this.comments = res.json(); console.log(this.comments)});
+   this.httpCommentService.getComments().subscribe((res: Response) => {this.comments = res.json(); console.log(this.comments)});
   }
 
   addComment(newComment: Comment, form: NgForm) : void{
@@ -27,8 +26,17 @@ export class CommentComponent implements OnInit {
       form.reset();
     }    
 
+    deleteComment(id: number) {
+      this.httpCommentService.delete(id).subscribe(() => {this.refresh(); });
+    }
+
   onPost(res : any) : void{
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
+    }
+
+    refresh() {
+       this.httpCommentService.getComments().subscribe((res: Response) => {this.comments = res.json(); console.log(this.comments)});
     }
 }

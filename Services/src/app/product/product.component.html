@@ -11,16 +11,8 @@
   <input type="submit" value="Add"/>
 </form>
 
-<!--<h3>Countries</h3>
-<div>
-  <ul>
-    <li *ngFor="let country of countries"> {{country.Name}} </li>
-  </ul>
-</div>-->
-
 <h3>Countries</h3>
 <div>
- <!--<form #f="ngForm1" (ngSubmit)="onSubmitDelete(f.value,f)"> -->
     <table border="1">
       <tr>
           <td>
@@ -40,7 +32,6 @@
         <td><button (click)='deleteCountry(country.Id)' type="button">Delete</button></td>
       </tr>
     </table>
-<!--</form>-->
 </div>
 
 

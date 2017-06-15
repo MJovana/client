@@ -19,17 +19,25 @@ export class PlaceComponent implements OnInit {
   constructor(private httpPlaceService: HttpPlaceService) { }
 
   ngOnInit() {
-   this.httpPlaceService.getPlaces().subscribe((res: Response) => 
-   {this.places = res.json(); console.log(this.places)});
+   this.httpPlaceService.getPlaces().subscribe((res: Response) =>  {this.places = res.json(); console.log(this.places)});
   }
 
   addPlace(newPlace: Place, form: NgForm) : void{
       this.httpPlaceService.postPlace(newPlace).subscribe(this.onPost);
       form.reset();
-    }    
+    } 
+
+    deletePlace(id: number) {
+      this.httpPlaceService.delete(id).subscribe(() => {this.refresh(); });
+    }   
 
   onPost(res : any) : void{
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
+    }
+
+     refresh() {
+       this.httpPlaceService.getPlaces().subscribe((res: Response) =>  {this.places = res.json(); console.log(this.places)});
     }
 }

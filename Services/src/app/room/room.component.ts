@@ -18,16 +18,24 @@ export class RoomComponent implements OnInit {
   constructor(private httpRoomService: HttpRoomService) { }
 
   ngOnInit() {
-   this.httpRoomService.getRooms().subscribe((res: Response) =>
-    {this.rooms = res.json(); console.log(this.rooms)});
+   this.httpRoomService.getRooms().subscribe((res: Response) => {this.rooms = res.json(); console.log(this.rooms)});
   }
    addRoom(newRoom: Room, form: NgForm) : void{
       this.httpRoomService.postRoom(newRoom).subscribe(this.onPost);
       form.reset();
     }    
 
+    deleteRoom(id: number) {
+      this.httpRoomService.delete(id).subscribe(() => {this.refresh(); });
+    }
+
   onPost(res : any) : void{
       alert("Post!");
       console.log(res.json());
+      window.location.reload();
+    }
+
+    refresh() {
+      this.httpRoomService.getRooms().subscribe((res: Response) => {this.rooms = res.json(); console.log(this.rooms)});
     }
 }
