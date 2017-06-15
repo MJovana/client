@@ -55,6 +55,7 @@ const Routes = [
   {path: "place", component: PlaceComponent},
   {path: "room", component: RoomComponent},
   {path: "roomr", component: RoomReservationsComponent},
+  {path: "user", component: UserService},
 ]
 
 

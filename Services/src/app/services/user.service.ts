@@ -28,5 +28,13 @@ export class UserService {
         return this.http.post('http://localhost:54042/oauth/token',`username=${user.Username}&password=${user.Password}&grant_type=password`, opts);
     }
 
+       getUsers(): Observable<any> {
+
+        return this.http.get("http://localhost:54042/api/AppUsers");        
+    }
+
+  delete(Id: number) {
+      return this.http.delete("http://localhost:54042/api/AppUsers/" + Id);
+  }
 
 }

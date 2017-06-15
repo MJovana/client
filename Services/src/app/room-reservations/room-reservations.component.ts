@@ -32,8 +32,8 @@ export class RoomReservationsComponent implements OnInit {
    { console.log(error), alert("Unsuccessfull fetch operation")});
 
     //id od usera
-   // this.userService.().subscribe(c => this.accommodations = c.json(), error => 
-   // { console.log(error), alert("Unsuccessfull fetch operation")});
+   this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
+    { console.log(error), alert("Unsuccessfull fetch operation")});
 
 }
    addRoomReservation(newRoomReservation: RoomReservation, form: NgForm) : void{

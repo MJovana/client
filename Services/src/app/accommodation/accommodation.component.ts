@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 import { HttpAccommodationService } from '../services/http.accommodationService';
 import { HttpAccommodationTypeService } from '../services/http.accommodationTypeService';
 import { HttpProductService } from '../services/http.service';
-// USER import { HttpCommentService } from '../services/http.commentService';
+import { UserService } from '../services/user.service';
 import { HttpPlaceService } from '../services/http.placeService';
 import {Accommodation} from './accommodation.model';
 import {NgForm} from '@angular/forms';
@@ -19,13 +19,14 @@ export class AccommodationComponent implements OnInit {
   accommodations : Object [];
   accommodation : Accommodation;
   AccommodationId: number;
-   // users : Object[];
+  users : Object[];
   places : Object[];
   accommodationTypes: Object[];
 
   constructor(private httpAccommodationService: HttpAccommodationService,
               private httpAccommodationTypeService: HttpAccommodationTypeService,
-              private httpPlaceService : HttpPlaceService) { }
+              private httpPlaceService : HttpPlaceService,
+              private userService: UserService) { }
 
   ngOnInit() {
    this.httpAccommodationService.getAC().subscribe((res: Response) =>
@@ -40,13 +41,13 @@ export class AccommodationComponent implements OnInit {
    {console.log(error), alert("Unsuccessfull fetch operation")});
 
    //id od usera
-   // this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
-   // { console.log(error), alert("Unsuccessfull fetch operation")});
+    this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
+    { console.log(error), alert("Unsuccessfull fetch operation")});
 }
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
-      newAccommodation.Approved = true;
-      newAccommodation.AccommodationTypeId = this.AccommodationId;
+//      newAccommodation.Approved = true;
+ //     newAccommodation.AccommodationTypeId = this.AccommodationId;
       this.httpAccommodationService.postAccommodation(newAccommodation).subscribe(this.onPost);
       form.reset();
     }   

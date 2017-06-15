@@ -28,10 +28,13 @@
       <label for="ImageURL">ImageURL</label>
       <input type="text" name="ImageURL" ngModel>
     </div>
-    <!--<div>
+    <div>
       <label for="Approved">Approved</label>
-      <input type="text" name="Approved" ngModel>
-    </div>-->
+      <select name="Approved" id="Approved" [(ngModel)]="Approved">
+        <option>true</option>
+        <option>false</option>
+      </select>
+    </div>
     <div>
       <label for="PlaceId">Id of place: </label>
       <select name="PlaceId" id="PlaceId" [(ngModel)]="PlaceId">

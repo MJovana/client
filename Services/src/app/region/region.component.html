@@ -7,7 +7,7 @@
     <div>
       <label for="CountryId">Id of country:</label>
       <select name="CountryId" id="CountryId" [(ngModel)]="CountryId">
-        <option *ngFor = "let country of countries" value={{country.Id}} >{{country.Id}}</option>
+        <option *ngFor = "let country of countries" value={{country.Id}} >{{country.Name}}</option>
       </select>
     </div>
   <input type="submit" value="Add"/>

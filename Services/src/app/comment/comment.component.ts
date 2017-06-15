@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { HttpCommentService } from '../services/http.commentService';
 import { HttpAccommodationService } from '../services/http.accommodationService';
-// USER import { HttpCommentService } from '../services/http.commentService';
+import { UserService } from '../services/user.service';
 import {Comment} from './comment.model';
 import {NgForm} from '@angular/forms';
 
@@ -17,10 +17,11 @@ export class CommentComponent implements OnInit {
   comments : Object [];
   comment : Comment;
   accommodations : Object[];
- // users : Object[];
+  users : Object[];
 
   constructor(private httpCommentService: HttpCommentService,
-              private httpAccommodationService: HttpAccommodationService) { }
+              private httpAccommodationService: HttpAccommodationService,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.httpCommentService.getComments().subscribe((res: Response) => 
@@ -31,8 +32,8 @@ export class CommentComponent implements OnInit {
    { console.log(error), alert("Unsuccessfull fetch operation")});
 
    //id od usera
-   // this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
-   // { console.log(error), alert("Unsuccessfull fetch operation")});
+   this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
+    { console.log(error), alert("Unsuccessfull fetch operation")});
 }
 
   addComment(newComment: Comment, form: NgForm) : void{

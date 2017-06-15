@@ -17,7 +17,7 @@
     <div>
       <label for="AccommodationId">Id of accommodation: </label>
       <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
-        <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Id}}</option>
+        <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Text}}</option>
       </select>
     </div>
     
