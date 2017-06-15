@@ -8,7 +8,10 @@ export class Accommodation {
     Longitude: number;
     ImageURL: string;
     Approved: boolean;
-    AccommodationId : number;
+    //reference:
+    AccommodationTypeId : number;
+    PlaceId : number;
+    UserId : number;
 
     constructor(Id:number, 
                 Name: string, 
@@ -19,7 +22,9 @@ export class Accommodation {
                 Longitude: number,
                 ImageURL: string,
                 Approved: boolean,
-                AccommodationId : number
+                AccommodationTypeId : number,
+                PlaceId : number,
+                UserId : number
 
     ) {
         this.Id = Id;
@@ -31,6 +36,8 @@ export class Accommodation {
         this.Longitude = Longitude;
         this.ImageURL = ImageURL;
         this.Approved = Approved; 
-        this.AccommodationId = AccommodationId;
+        this.AccommodationTypeId = AccommodationTypeId;
+        this.PlaceId = PlaceId;
+        this.UserId = UserId;
     }
 }

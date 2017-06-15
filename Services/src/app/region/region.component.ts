@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpRegionService } from '../services/http.regionService'
-import {Region} from './region.model'
+import { HttpRegionService } from '../services/http.regionService';
+import { HttpProductService } from '../services/http.service';
+import {Region} from './region.model';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -12,13 +13,22 @@ import {NgForm} from '@angular/forms';
 })
 export class RegionComponent implements OnInit {
 
-   regions : Object [];
+  regions : Object [];
   region : Region;
-  constructor(private httpRegionService: HttpRegionService) { }
+  countries : Object[];
+
+  constructor(private httpRegionService: HttpRegionService,
+              private httpProductService: HttpProductService) { }
 
  ngOnInit() {
-   this.httpRegionService.getRegions().subscribe((res: Response) =>  {this.regions = res.json(); console.log(this.regions)});
-  }
+   this.httpRegionService.getRegions().subscribe((res: Response) =>  
+   {this.regions = res.json(); console.log(this.regions)});
+   
+   //id od zemlje
+   this.httpProductService.getProducts().subscribe(c => this.countries = c.json(), error => 
+   {console.log(error), alert("Unsuccessfull fetch operation")});
+
+ }
   addRegion(newRegion: Region, form: NgForm) : void{
       this.httpRegionService.postRegion(newRegion).subscribe(this.onPost);
       form.reset();
@@ -35,7 +45,8 @@ export class RegionComponent implements OnInit {
     }
 
      refresh() {
-      this.httpRegionService.getRegions().subscribe((res: Response) =>  {this.regions = res.json(); console.log(this.regions)});
+      this.httpRegionService.getRegions().subscribe((res: Response) =>  
+      {this.regions = res.json(); console.log(this.regions)});
     }
 
 }

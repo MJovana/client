@@ -5,8 +5,10 @@
       <input type="text" name="Name" ngModel>
     </div>
     <div>
-      <label for="RegionId">RegionId</label>
-      <input type="text" name="RegionId" ngModel>
+      <label for="RegionId">Id of regions: </label>
+      <select name="RegionId" id="RegionId" [(ngModel)]="RegionId">
+        <option *ngFor = "let region of regions" value={{region.Id}} >{{region.Id}}</option>
+      </select>
     </div>
   <input type="submit" value="Add"/>
 </form>

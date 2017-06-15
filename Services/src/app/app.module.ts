@@ -50,7 +50,11 @@ const Routes = [
   {path: "acTypes/:Id", component: AccommodationTypeDetailsComponent},
   {path: "registration", component: RegistrationComponent},
   {path: "login", component: LoginComponent},
-   {path: "ac", component: AccommodationComponent},
+  {path: "ac", component: AccommodationComponent},
+  {path: "region", component: RegionComponent},
+  {path: "place", component: PlaceComponent},
+  {path: "room", component: RoomComponent},
+  {path: "roomr", component: RoomReservationsComponent},
 ]
 
 

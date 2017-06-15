@@ -1,20 +1,23 @@
 export class Comment {
     Id: number;
     Grade: number;
-    Text: string;
+    Tekst: string;
     UserId : number;
+    AccommodationId : number;
    
 
     constructor(Id:number, 
                 Grade: number, 
-                Text: string,
-                UserId: number
+                Tekst: string,
+                UserId: number,
+                AccommodationId : number
 
     ) {
         this.Id = Id;
         this.Grade = Grade;
-        this.Text = Text;
+        this.Tekst = Tekst;
         this.UserId = UserId;
+        this.AccommodationId = AccommodationId;
       
     }
 }

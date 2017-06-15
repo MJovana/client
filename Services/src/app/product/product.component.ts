@@ -18,7 +18,8 @@ export class ProductComponent implements OnInit {
   constructor(private httpProductService: HttpProductService) { }
 
    ngOnInit() {
-     this.httpProductService.getProducts().subscribe((res: Response) => {this.countries = res.json(); console.log(this.countries)});
+     this.httpProductService.getProducts().subscribe((res: Response) => 
+     {this.countries = res.json(); console.log(this.countries)});
    }
 
  addCountry(newCountry: Country, form: NgForm) : void{
@@ -37,7 +38,8 @@ export class ProductComponent implements OnInit {
     }
 
     refresh() {
-      this.httpProductService.getProducts().subscribe((res: Response) => {this.countries = res.json(); console.log(this.countries)});
+      this.httpProductService.getProducts().subscribe((res: Response) => 
+      {this.countries = res.json(); console.log(this.countries)});
     }
 
   // addProduct() : void{

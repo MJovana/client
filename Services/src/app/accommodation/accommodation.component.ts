@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpAccommodationService } from '../services/http.accommodationService'
-import { HttpAccommodationTypeService } from '../services/http.accommodationTypeService'
-import { HttpProductService } from '../services/http.service'
-import {Accommodation} from './accommodation.model'
+import { HttpAccommodationService } from '../services/http.accommodationService';
+import { HttpAccommodationTypeService } from '../services/http.accommodationTypeService';
+import { HttpProductService } from '../services/http.service';
+// USER import { HttpCommentService } from '../services/http.commentService';
+import { HttpPlaceService } from '../services/http.placeService';
+import {Accommodation} from './accommodation.model';
 import {NgForm} from '@angular/forms';
 
 @Component({
@@ -16,28 +18,35 @@ export class AccommodationComponent implements OnInit {
 
   accommodations : Object [];
   accommodation : Accommodation;
-  countries : Object[];
-  acTypes: Object[];
   AccommodationId: number;
+   // users : Object[];
+  places : Object[];
+  accommodationTypes: Object[];
 
-  constructor(private httpAccommodationService: HttpAccommodationService, private httpProductService: HttpProductService, private httpAccommodationTypeService: HttpAccommodationTypeService) { }
+  constructor(private httpAccommodationService: HttpAccommodationService,
+              private httpAccommodationTypeService: HttpAccommodationTypeService,
+              private httpPlaceService : HttpPlaceService) { }
 
   ngOnInit() {
-   this.httpAccommodationService.getAC().subscribe((res: Response) => {this.accommodations = res.json(); console.log(this.accommodations)});
+   this.httpAccommodationService.getAC().subscribe((res: Response) =>
+   {this.accommodations = res.json(); console.log(this.accommodations)});
 
-   this.httpProductService.getProducts().subscribe(c => this.countries = c.json(), error => 
-   {
-     console.log(error), alert("Unsuccessfull fetch operation")
-   });
-   this.httpAccommodationTypeService.getACTypes().subscribe(c => this.acTypes = c.json(), error => 
-   {
-     console.log(error), alert("Unsuccessfull fetch operation")
-   });
-  }
+   //id od places
+   this.httpPlaceService.getPlaces().subscribe(c => this.places = c.json(), error => 
+   { console.log(error), alert("Unsuccessfull fetch operation")});
+
+   //id od accommodationTypes
+   this.httpAccommodationTypeService.getACTypes().subscribe(c => this.accommodationTypes = c.json(), error => 
+   {console.log(error), alert("Unsuccessfull fetch operation")});
+
+   //id od usera
+   // this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
+   // { console.log(error), alert("Unsuccessfull fetch operation")});
+}
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
       newAccommodation.Approved = true;
-      newAccommodation.AccommodationId = this.AccommodationId;
+      newAccommodation.AccommodationTypeId = this.AccommodationId;
       this.httpAccommodationService.postAccommodation(newAccommodation).subscribe(this.onPost);
       form.reset();
     }   
@@ -53,7 +62,8 @@ export class AccommodationComponent implements OnInit {
     }
 
     refresh() {
-      this.httpAccommodationService.getAC().subscribe((res: Response) => {this.accommodations = res.json(); console.log(this.accommodations)});
+      this.httpAccommodationService.getAC().subscribe((res: Response) => 
+      {this.accommodations = res.json(); console.log(this.accommodations)});
     }
 
 }

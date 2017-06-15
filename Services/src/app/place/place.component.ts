@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { HttpPlaceService } from '../services/http.placeService'
-import {Place} from './place.model'
+import { HttpPlaceService } from '../services/http.placeService';
+import { HttpRegionService } from '../services/http.regionService';
+import {Place} from './place.model';
 import {NgForm} from '@angular/forms';
 
 
@@ -15,12 +16,19 @@ export class PlaceComponent implements OnInit {
 
   places : Object [];
   place : Place;
+  regions : Object[];
 
-  constructor(private httpPlaceService: HttpPlaceService) { }
+  constructor(private httpPlaceService: HttpPlaceService, 
+              private httpRegionService: HttpRegionService) { }
 
   ngOnInit() {
-   this.httpPlaceService.getPlaces().subscribe((res: Response) =>  {this.places = res.json(); console.log(this.places)});
-  }
+   this.httpPlaceService.getPlaces().subscribe((res: Response) =>  
+   {this.places = res.json(); console.log(this.places)});
+  
+  // id od regiona
+   this.httpRegionService.getRegions().subscribe(c => this.regions = c.json(), error => 
+   {console.log(error), alert("Unsuccessfull fetch operation")});
+}
 
   addPlace(newPlace: Place, form: NgForm) : void{
       this.httpPlaceService.postPlace(newPlace).subscribe(this.onPost);
@@ -38,6 +46,7 @@ export class PlaceComponent implements OnInit {
     }
 
      refresh() {
-       this.httpPlaceService.getPlaces().subscribe((res: Response) =>  {this.places = res.json(); console.log(this.places)});
+       this.httpPlaceService.getPlaces().subscribe((res: Response) =>  
+       {this.places = res.json(); console.log(this.places)});
     }
 }

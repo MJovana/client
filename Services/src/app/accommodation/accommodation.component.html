@@ -33,16 +33,19 @@
       <input type="text" name="Approved" ngModel>
     </div>-->
     <div>
+      <label for="PlaceId">Id of place: </label>
       <select name="PlaceId" id="PlaceId" [(ngModel)]="PlaceId">
         <option *ngFor = "let place of places" value={{place.Id}} >{{place.Name}}</option>
       </select>
     </div>
     <div>
+      <label for="AccommodationTypeId">Id of accommodation types: </label>
       <select name="AccommodationTypeId" id="AccommodationTypeId" [(ngModel)]="AccommodationTypeId">
         <option *ngFor = "let acType of acTypes" value={{acType.Id}} >{{acType.Name}}</option>
       </select>
     </div>
     <div>
+      <label for="UserId">Id of users: </label>
       <select name="UserId" id="UserId" [(ngModel)]="UserId">
         <option *ngFor = "let user of users" value={{user.Id}} >{{user.Username}}</option>
       </select>

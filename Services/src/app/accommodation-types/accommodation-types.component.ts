@@ -18,7 +18,8 @@ export class AccommodationTypesComponent implements OnInit {
   constructor(private httpAccommodationTypeService: HttpAccommodationTypeService) { }
 
   ngOnInit() {
-    this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
+    this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => 
+    {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
   }
   addAccommodationType(newAccommodationType: AccommodationType, form: NgForm) : void{
       this.httpAccommodationTypeService.postAccommodationType(newAccommodationType).subscribe(this.onPost);
@@ -36,7 +37,8 @@ export class AccommodationTypesComponent implements OnInit {
     }
 
     refresh() {
-       this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
+       this.httpAccommodationTypeService.getACTypes().subscribe((res: Response) => 
+       {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
     }
 
 }

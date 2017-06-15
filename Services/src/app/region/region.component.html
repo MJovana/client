@@ -3,10 +3,12 @@
      <div>
       <label for="Name">Name</label>
       <input type="text" name="Name" ngModel>
-    </div>
+    </div> 
     <div>
-      <label for="CountryId">CountryId</label>
-      <input type="text" name="CountryId" ngModel>
+      <label for="CountryId">Id of country:</label>
+      <select name="CountryId" id="CountryId" [(ngModel)]="CountryId">
+        <option *ngFor = "let country of countries" value={{country.Id}} >{{country.Id}}</option>
+      </select>
     </div>
   <input type="submit" value="Add"/>
 </form>

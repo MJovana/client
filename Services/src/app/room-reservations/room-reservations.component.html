@@ -13,12 +13,16 @@
       <input type="text" name="Timestamp" ngModel>
     </div>
     <div>
-      <label for="RoomId">RoomId</label>
-      <input type="text" name="RoomId" ngModel>
+      <label for="RoomId">Id of room: </label>
+      <select name="RoomId" id="RoomId" [(ngModel)]="RoomId">
+        <option *ngFor = "let roomReservation of roomReservations" value={{roomReservations.Id}} >{{roomreservations.Id}}</option>
+      </select>
     </div>
-	<div>
-      <label for="UserId">UserId</label>
-      <input type="text" name="UserId" ngModel>
+	  <div>
+      <label for="UserId">Id of user: </label>
+      <select name="UserId" id="UserId" [(ngModel)]="UserId">
+        <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
+      </select>
     </div>
   <input type="submit" value="Add"/>
 </form>
