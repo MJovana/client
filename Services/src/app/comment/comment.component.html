@@ -1,3 +1,23 @@
-<p>
-  comment works!
-</p>
+<h3>Add comment</h3>
+<form #f="ngForm" (ngSubmit)="addComment(f.value, f)">
+     <div>
+      <label for="Grade">Grade</label>
+      <input type="text" name="Grade" ngModel>
+    </div>
+    <div>
+      <label for="Text">Text</label>
+      <input type="text" name="Text" ngModel>
+    </div>
+    <div>
+      <label for="UserId">UserId</label>
+      <input type="text" name="UserId" ngModel>
+    </div>
+  <input type="submit" value="Add"/>
+</form>
+
+<h3>Comment</h3>
+<div>
+  <ul>
+    <li *ngFor="let comment of comments"> {{comment.Name}} </li>
+  </ul>
+</div>

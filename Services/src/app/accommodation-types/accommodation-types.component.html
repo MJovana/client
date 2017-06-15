@@ -1,7 +1,15 @@
-<h2>A list of accommodation types</h2>
+<h3>Add accommodation type</h3>
+<form #f="ngForm" (ngSubmit)="addAccommodationType(f.value, f)">
+     <div>
+      <label for="Name">Name</label>
+      <input type="text" name="Name" ngModel>
+    </div>
+  <input type="submit" value="Add"/>
+</form>
+
+<h3>Accommodation Type</h3>
 <div>
   <ul>
-    <li *ngFor="let type of acType">{{type.Name}}</li>
+    <li *ngFor="let accommodation of accommodations"> {{accommodationType.Name}} </li>
   </ul>
 </div>
-<button (click)=addProduct()>Add this product!</button>

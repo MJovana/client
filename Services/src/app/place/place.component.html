@@ -1,3 +1,19 @@
-<p>
-  place works!
-</p>
+<h3>Add place</h3>
+<form #f="ngForm" (ngSubmit)="addPlace(f.value, f)">
+     <div>
+      <label for="Name">Name</label>
+      <input type="text" name="Name" ngModel>
+    </div>
+    <div>
+      <label for="RegionId">RegionId</label>
+      <input type="text" name="RegionId" ngModel>
+    </div>
+  <input type="submit" value="Add"/>
+</form>
+
+<h3>Place</h3>
+<div>
+  <ul>
+    <li *ngFor="let place of places"> {{place.Name}} </li>
+  </ul>
+</div>

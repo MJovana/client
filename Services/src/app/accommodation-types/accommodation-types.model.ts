@@ -3,7 +3,7 @@ export class AccommodationType {
     Name: string;  
 
     constructor(Id:number, 
-                Name: string,               
+                Name: string               
 
     ) {
         this.Id = Id;

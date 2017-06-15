@@ -1,7 +1,7 @@
 export class Region {
     Id: number;
     Name: string;
-    CountyId : number;
+    CountryId : number;
     
      constructor(Id:number, 
                 Name: string, 
@@ -9,6 +9,6 @@ export class Region {
 ) {
     this.Id = Id;
     this.Name = Name;
-    this.CountyId = CountryId;
+    this.CountryId = CountryId;
    }
 }
