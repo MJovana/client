@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from "app/registration/User.model";
 import { UserService } from '../services/user.service';
 import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
@@ -17,7 +18,7 @@ export class RegistrationComponent implements OnInit {
   ConfirmPassword: string;
   Role: string;
 
-  constructor(private userService : UserService) { 
+  constructor(private userService : UserService, private router: Router) { 
   }
 
   ngOnInit() {
@@ -31,11 +32,11 @@ export class RegistrationComponent implements OnInit {
     form.resetForm();
   }
 
-  onSubmitLogin(){
-    this.userService.login(new User(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword)).subscribe();
-    this.Email = "";
-    this.Password = "";
-    this.ConfirmPassword = "";
-  }
+  // onSubmitLogin(){
+  //   this.userService.login(new User(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword)).subscribe();
+  //   this.Email = "";
+  //   this.Password = "";
+  //   this.ConfirmPassword = "";
+  // }
 
 }

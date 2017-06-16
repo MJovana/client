@@ -18,15 +18,15 @@ export class UserService {
         return this.http.post('http://localhost:54042/api/Account/Register', user, opts);
     }
 
-    login(user : User) : Observable<any> {
-        let header = new Headers();
-        header.append('Content-type', 'application/json');
+    // login(user : User) : Observable<any> {
+    //     let header = new Headers();
+    //     header.append('Content-type', 'application/json');
 
-        let opts = new RequestOptions();
-        opts.headers = header;
+    //     let opts = new RequestOptions();
+    //     opts.headers = header;
 
-        return this.http.post('http://localhost:54042/Account/Login', JSON.stringify(user), opts);
-    }
+    //     return this.http.post('http://localhost:54042/Account/Login', JSON.stringify(user), opts);
+    // }
 
 
 }

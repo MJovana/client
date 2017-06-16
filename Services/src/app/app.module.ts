@@ -39,6 +39,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 const Routes = [
@@ -50,12 +51,14 @@ const Routes = [
   {path: "acTypes/:Id", component: AccommodationTypeDetailsComponent},
   {path: "registration", component: RegistrationComponent},
   {path: "login", component: LoginComponent},
+  {path: "logout", component: LogoutComponent},
   {path: "ac", component: AccommodationComponent},
   {path: "region", component: RegionComponent},
   {path: "place", component: PlaceComponent},
   {path: "room", component: RoomComponent},
   {path: "roomr", component: RoomReservationsComponent},
   {path: "user", component: UserService},
+  {path: "admin", component: AdminComponent},
 ]
 
 
@@ -83,7 +86,8 @@ const Routes = [
     RoomDetailsComponent,
     RegistrationComponent,
     LoginComponent,
-    AdminComponent
+    AdminComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
