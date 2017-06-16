@@ -54,6 +54,7 @@ const Routes = [
   {path: "logout", component: LogoutComponent},
   {path: "ac", component: AccommodationComponent},
   {path: "region", component: RegionComponent},
+  {path: "comment", component: CommentComponent},
   {path: "place", component: PlaceComponent},
   {path: "room", component: RoomComponent},
   {path: "roomr", component: RoomReservationsComponent},

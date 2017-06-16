@@ -1,14 +1,22 @@
+<a [routerLink]="['/admin']"></a>
+
 <h3>Add country</h3>
+
 <form #f="ngForm" (ngSubmit)="addCountry(f.value, f)">
-     <div>
-      <label for="Name">Name</label>
-      <input type="text" name="Name" ngModel>
-    </div>
-    <div>
-      <label for="Code">Code</label>
-      <input type="text" name="Code" ngModel>
-    </div>
-  <input type="submit" value="Add"/>
+    <table>
+     <tr>
+       <td> <label for="Name">Name</label> </td>
+       <td> <input type="text" name="Name" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Code">Code</label> </td>
+      <td> <input type="text" name="Code" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <input type="submit" value="Add"/> </td>
+      <td> <button (click)="onCancle()">Cancle</button> </td>
+    </tr>
+    </table>
 </form>
 
 <h3>Countries</h3>

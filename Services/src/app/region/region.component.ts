@@ -4,6 +4,7 @@ import { HttpRegionService } from '../services/http.regionService';
 import { HttpProductService } from '../services/http.service';
 import {Region} from './region.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-region',
@@ -18,7 +19,8 @@ export class RegionComponent implements OnInit {
   countries : Object[];
 
   constructor(private httpRegionService: HttpRegionService,
-              private httpProductService: HttpProductService) { }
+              private httpProductService: HttpProductService,
+              private router: Router) { }
 
  ngOnInit() {
    this.httpRegionService.getRegions().subscribe((res: Response) =>  
@@ -29,6 +31,11 @@ export class RegionComponent implements OnInit {
    {console.log(error), alert("Unsuccessfull fetch operation")});
 
  }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
+
   addRegion(newRegion: Region, form: NgForm) : void{
       this.httpRegionService.postRegion(newRegion).subscribe(this.onPost);
       form.reset();

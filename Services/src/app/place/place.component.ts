@@ -4,6 +4,7 @@ import { HttpPlaceService } from '../services/http.placeService';
 import { HttpRegionService } from '../services/http.regionService';
 import {Place} from './place.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,7 +20,8 @@ export class PlaceComponent implements OnInit {
   regions : Object[];
 
   constructor(private httpPlaceService: HttpPlaceService, 
-              private httpRegionService: HttpRegionService) { }
+              private httpRegionService: HttpRegionService,
+              private router: Router) { }
 
   ngOnInit() {
    this.httpPlaceService.getPlaces().subscribe((res: Response) =>  
@@ -28,7 +30,11 @@ export class PlaceComponent implements OnInit {
   // id od regiona
    this.httpRegionService.getRegions().subscribe(c => this.regions = c.json(), error => 
    {console.log(error), alert("Unsuccessfull fetch operation")});
-}
+  }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
 
   addPlace(newPlace: Place, form: NgForm) : void{
       this.httpPlaceService.postPlace(newPlace).subscribe(this.onPost);

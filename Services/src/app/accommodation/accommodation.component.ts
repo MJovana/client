@@ -7,6 +7,7 @@ import { UserService } from '../services/user.service';
 import { HttpPlaceService } from '../services/http.placeService';
 import {Accommodation} from './accommodation.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-accommodation',
@@ -26,11 +27,12 @@ export class AccommodationComponent implements OnInit {
   constructor(private httpAccommodationService: HttpAccommodationService,
               private httpAccommodationTypeService: HttpAccommodationTypeService,
               private httpPlaceService : HttpPlaceService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
    this.httpAccommodationService.getAC().subscribe((res: Response) =>
-   {this.accommodations = res.json(); console.log(this.accommodations)});
+  { this.accommodations = res.json(); console.log(this.accommodations)});
 
    //id od places
    this.httpPlaceService.getPlaces().subscribe(c => this.places = c.json(), error => 
@@ -43,7 +45,11 @@ export class AccommodationComponent implements OnInit {
    //id od usera
     this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
     { console.log(error), alert("Unsuccessfull fetch operation")});
-}
+  }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
 //      newAccommodation.Approved = true;

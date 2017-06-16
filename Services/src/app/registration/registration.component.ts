@@ -25,11 +25,13 @@ export class RegistrationComponent implements OnInit {
   }
 
   onSubmitRegister(user:User,form:NgForm){
-    this.userService.register(new User(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword)).subscribe();
-    this.Email = "";
-    this.Password = "";
-    this.ConfirmPassword = "";
-    form.resetForm();
+    this.userService.register(new User(this.Username, this.Password, this.Role, this.Email, this.ConfirmPassword)).subscribe(x => { this.router.navigate(['/home']); });
+
+    //form.resetForm();
+  }
+
+  onCancle() {
+      this.router.navigate(['/home']);
   }
 
   // onSubmitLogin(){

@@ -5,6 +5,7 @@ import { HttpAccommodationService } from '../services/http.accommodationService'
 import { UserService } from '../services/user.service';
 import {Comment} from './comment.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-comment',
@@ -21,7 +22,8 @@ export class CommentComponent implements OnInit {
 
   constructor(private httpCommentService: HttpCommentService,
               private httpAccommodationService: HttpAccommodationService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
     this.httpCommentService.getComments().subscribe((res: Response) => 
@@ -34,7 +36,11 @@ export class CommentComponent implements OnInit {
    //id od usera
    this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
     { console.log(error), alert("Unsuccessfull fetch operation")});
-}
+  }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
 
   addComment(newComment: Comment, form: NgForm) : void{
       this.httpCommentService.postComment(newComment).subscribe(this.onPost);

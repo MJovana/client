@@ -20,34 +20,26 @@
     </form>
 </div>-->
 <a [routerLink]="['/admin']"></a>
+<a [routerLink]="['/home']"></a>
 
 <div>
+  
+  <h2>Login</h2>
   
   <form #f="ngForm" (ngSubmit)="onSubmitLogin(f.value,f)"> 
     <table>
       <tr>
-          <td>
-              <label for = "Username">Username:</label>
-          </td>
-          <td>
-              <input type="text" name="Username" id="Username" [(ngModel)]="Username"/>
-          </td>
+          <td> <label for = "Username">Username:</label> </td>
+          <td> <input type="text" name="Username" id="Username" [(ngModel)]="Username"/> </td>
       </tr>
-
       <tr>
-          <td>
-                <label for = "Password">Password:</label>
-          </td>
-
-          <td>
-                <input type="password" name="Password" id="Password" [(ngModel)]="Password"/>
-            </td>
+          <td> <label for = "Password">Password:</label> </td>
+          <td> <input type="password" name="Password" id="Password" [(ngModel)]="Password"/> </td>
       </tr>
-
+      <tr>
+          <td> <input class="button button1" type="submit" value="Login"/> </td> 
+          <td> <button (click)="onCancle()">Cancle</button> </td>
+      </tr>
     </table>
-    <br>
-  <div>
-    <input class="button button1" type="submit" value="Login"/>
-  </div>
-</form>
+  </form>
 </div>

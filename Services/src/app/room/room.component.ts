@@ -4,6 +4,7 @@ import { HttpRoomService } from '../services/http.roomService';
 import { HttpAccommodationService } from '../services/http.accommodationService';
 import {Room} from './room.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-room',
@@ -18,7 +19,8 @@ export class RoomComponent implements OnInit {
   accommodations : Object[];
 
   constructor(private httpRoomService: HttpRoomService, 
-              private httpAccommodationService: HttpAccommodationService) { }
+              private httpAccommodationService: HttpAccommodationService,
+              private router: Router) { }
 
   ngOnInit() {
    this.httpRoomService.getRooms().subscribe((res: Response) => 
@@ -29,6 +31,10 @@ export class RoomComponent implements OnInit {
    {console.log(error), alert("Unsuccessfull fetch operation")});
 
  }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
    addRoom(newRoom: Room, form: NgForm) : void{
       this.httpRoomService.postRoom(newRoom).subscribe(this.onPost);
       form.reset();

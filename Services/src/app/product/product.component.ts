@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { HttpProductService } from '../services/http.service'
 import {Country} from './product.model'
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +16,7 @@ export class ProductComponent implements OnInit {
   countries : Object [];
   country: Country;
 
-  constructor(private httpProductService: HttpProductService) { }
+  constructor(private httpProductService: HttpProductService, private router: Router) { }
 
    ngOnInit() {
      this.httpProductService.getProducts().subscribe((res: Response) => 
@@ -24,8 +25,12 @@ export class ProductComponent implements OnInit {
 
  addCountry(newCountry: Country, form: NgForm) : void{
       this.httpProductService.postProduct(newCountry).subscribe(this.onPost);
-      form.reset();  
+      form.reset(); 
     }    
+
+    onCancle() {
+      this.router.navigate(['/admin']);
+    }
 
   onPost(res : any) : void{    
       alert("Post!");

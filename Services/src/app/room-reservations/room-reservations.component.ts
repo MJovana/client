@@ -5,6 +5,7 @@ import { HttpRoomService } from '../services/http.roomService';
 import { UserService} from '../services/user.service';
 import {RoomReservation} from './room-reservation.model';
 import {NgForm} from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class RoomReservationsComponent implements OnInit {
 
   constructor(private httpRoomReservationService: HttpRoomReservationService,
               private httpRoomService: HttpRoomService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
    this.httpRoomReservationService.getReservations().subscribe((res: Response) =>  
@@ -36,6 +38,11 @@ export class RoomReservationsComponent implements OnInit {
     { console.log(error), alert("Unsuccessfull fetch operation")});
 
 }
+
+  onCancle() {
+      this.router.navigate(['/admin']);
+  }
+  
    addRoomReservation(newRoomReservation: RoomReservation, form: NgForm) : void{
       this.httpRoomReservationService.postRoomReservation(newRoomReservation).subscribe(this.onPost);
       form.reset();

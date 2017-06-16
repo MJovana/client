@@ -1,28 +1,37 @@
+<a [routerLink]="['/admin']"></a>
+
 <h3>Add room</h3>
+
 <form #f="ngForm" (ngSubmit)="addRoom(f.value, f)">
-     <div>
-      <label for="RoomNumber">RoomNumber</label>
-      <input type="text" name="RoomNumber" ngModel>
-    </div>
-    <div>
-      <label for="BedCount">BedCount</label>
-      <input type="text" name="BedCount" ngModel>
-    </div>
-    <div>
-      <label for="Description">Description</label>
-      <input type="text" name="Description" ngModel>
-    </div>
-    <div>
-      <label for="PricePerNight">PricePerNight</label>
-      <input type="text" name="PricePerNight" ngModel>
-    </div>
-   <div>
-      <label for="AccommodationId">Id of accommodations: </label>
-      <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
-        <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Id}}</option>
-      </select>
-    </div>
-  <input type="submit" value="Add"/>
+  <table>
+     <tr>
+      <td> <label for="RoomNumber">RoomNumber</label> </td>
+      <td> <input type="text" name="RoomNumber" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="BedCount">BedCount</label> </td>
+      <td> <input type="text" name="BedCount" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Description">Description</label> </td>
+      <td> <input type="text" name="Description" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="PricePerNight">PricePerNight</label> </td>
+      <td> <input type="text" name="PricePerNight" ngModel> </td>
+    </tr>
+   <tr>
+      <td> <label for="AccommodationId">Id of accommodations: </label> </td>
+      <td> <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
+            <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Id}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="submit" value="Add"/> </td>
+      <td> <button (click)="onCancle()">Cancle</button> </td>
+    </tr>
+  </table>
 </form>
 
 <h3>Room</h3>

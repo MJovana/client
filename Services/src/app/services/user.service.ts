@@ -29,7 +29,6 @@ export class UserService {
     }
 
     getUsers(): Observable<any> {
-
         return this.http.get("http://localhost:54042/api/AppUsers");        
     }
 
@@ -40,7 +39,7 @@ export class UserService {
             return false;
     }
 
-    logOut(): void{
+    logOut(): void {
         localStorage.removeItem("token");
         localStorage.removeItem("role");
     }

@@ -1,59 +1,71 @@
+<a [routerLink]="['/admin']"></a>
+
 <h3>Add accommodation</h3>
+
 <form #f="ngForm" (ngSubmit)="addAccommodation(f.value, f)">
-     <div>
-      <label for="Name">Name</label>
-      <input type="text" name="Name" ngModel>
-    </div>
-    <div>
-      <label for="Description">Description</label>
-      <input type="text" name="Description" ngModel>
-    </div>
-    <div>
-      <label for="Address">Address</label>
-      <input type="text" name="Address" ngModel>
-    </div>
-    <div>
-      <label for="AvrageGrade">AvrageGrade</label>
-      <input type="text" name="AvrageGrade" ngModel>
-    </div>
-    <div>
-      <label for="Latitude">Latitude</label>
-      <input type="text" name="Latitude" ngModel>
-    </div>
-    <div>
-      <label for="Longitude">Longitude</label>
-      <input type="text" name="Longitude" ngModel>
-    </div>
-    <div>
-      <label for="ImageURL">ImageURL</label>
-      <input type="text" name="ImageURL" ngModel>
-    </div>
-    <div>
-      <label for="Approved">Approved</label>
-      <select name="Approved" id="Approved" [(ngModel)]="Approved">
-        <option>true</option>
-        <option>false</option>
-      </select>
-    </div>
-    <div>
-      <label for="PlaceId">Id of place: </label>
-      <select name="PlaceId" id="PlaceId" [(ngModel)]="PlaceId">
-        <option *ngFor = "let place of places" value={{place.Id}} >{{place.Name}}</option>
-      </select>
-    </div>
-    <div>
-      <label for="AccommodationTypeId">Id of accommodation types: </label>
-      <select name="AccommodationTypeId" id="AccommodationTypeId" [(ngModel)]="AccommodationTypeId">
-        <option *ngFor = "let acType of acTypes" value={{acType.Id}} >{{acType.Name}}</option>
-      </select>
-    </div>
-    <div>
-      <label for="UserId">Id of users: </label>
-      <select name="UserId" id="UserId" [(ngModel)]="UserId">
-        <option *ngFor = "let user of users" value={{user.Id}} >{{user.Username}}</option>
-      </select>
-    </div>
-  <input type="submit" value="Add"/>
+  <table>
+     <tr>
+      <td> <label for="Name">Name</label> </td>
+      <td> <input type="text" name="Name" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Description">Description</label> </td>
+      <td> <input type="text" name="Description" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Address">Address</label> </td>
+      <td> <input type="text" name="Address" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="AvrageGrade">AvrageGrade</label> </td>
+      <td> <input type="text" name="AvrageGrade" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Latitude">Latitude</label> </td>
+      <td> <input type="text" name="Latitude" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Longitude">Longitude</label> </td>
+      <td> <input type="text" name="Longitude" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="ImageURL">ImageURL</label> </td>
+      <td> <input type="text" name="ImageURL" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Approved">Approved</label> </td>
+      <td> <select name="Approved" id="Approved" [(ngModel)]="Approved">
+              <option>true</option>
+              <option>false</option>
+            </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <label for="PlaceId">Id of place: </label> </td>
+      <td> <select name="PlaceId" id="PlaceId" [(ngModel)]="PlaceId">
+              <option *ngFor = "let place of places" value={{place.Id}} >{{place.Name}}</option>
+            </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <label for="AccommodationTypeId">Id of accommodation types: </label> </td>
+      <td> <select name="AccommodationTypeId" id="AccommodationTypeId" [(ngModel)]="AccommodationTypeId">
+              <option *ngFor = "let acType of acTypes" value={{acType.Id}} >{{acType.Name}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <label for="UserId">Id of users: </label> </td>
+      <td> <select name="UserId" id="UserId" [(ngModel)]="UserId">
+              <option *ngFor = "let user of users" value={{user.Id}} >{{user.Username}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="submit" value="Add"/> </td>
+      <td> <button (click)="onCancle()">Cancle</button> </td>
+    </tr>
+  </table>
 </form>
 
 <h3>Accommmodations</h3>

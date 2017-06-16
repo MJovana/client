@@ -1,16 +1,25 @@
+<a [routerLink]="['/admin']"></a>
+
 <h3>Add region</h3>
+
 <form #f="ngForm" (ngSubmit)="addRegion(f.value, f)">
-     <div>
-      <label for="Name">Name</label>
-      <input type="text" name="Name" ngModel>
-    </div> 
-    <div>
-      <label for="CountryId">Id of country:</label>
-      <select name="CountryId" id="CountryId" [(ngModel)]="CountryId">
-        <option *ngFor = "let country of countries" value={{country.Id}} >{{country.Name}}</option>
-      </select>
-    </div>
-  <input type="submit" value="Add"/>
+  <table>
+     <tr>
+      <td> <label for="Name">Name</label> </td> 
+      <td> <input type="text" name="Name" ngModel> </td>
+    </tr> 
+    <tr>
+      <td> <label for="CountryId">Id of country:</label> </td>
+      <td> <select name="CountryId" id="CountryId" [(ngModel)]="CountryId">
+              <option *ngFor = "let country of countries" value={{country.Id}} >{{country.Name}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr> 
+      <td> <input type="submit" value="Add"/> </td>
+      <td> <button (click)="onCancle()">Cancle</button> </td>
+    </tr>
+  </table>
 </form>
 
 <h3>Region</h3>

@@ -1,27 +1,36 @@
+<a [routerLink]="['/admin']"></a>
+
 <h3>Add comment</h3>
+
 <form #f="ngForm" (ngSubmit)="addComment(f.value, f)">
-     <div>
-      <label for="Grade">Grade</label>
-      <input type="text" name="Grade" ngModel>
-    </div>
-    <div>
-      <label for="Text">Text</label>
-      <input type="text" name="Text" ngModel>
-    </div>
-   <div>
-      <label for="UserId">Id user: </label>
-      <select name="UserId" id="UserId" [(ngModel)]="UserId">
-        <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
-      </select>
-    </div>
-    <div>
-      <label for="AccommodationId">Id of accommodation: </label>
-      <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
-        <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Text}}</option>
-      </select>
-    </div>
-    
-  <input type="submit" value="Add"/>
+  <table>
+     <tr>
+      <td> <label for="Grade">Grade</label> </td>
+      <td> <input type="text" name="Grade" ngModel> </td>
+    </tr>
+    <tr>
+      <td> <label for="Text">Text</label> </td>
+      <td> <input type="text" name="Text" ngModel> </td>
+    </tr>
+   <tr>
+      <td> <label for="UserId">Id user: </label> </td>
+      <td> <select name="UserId" id="UserId" [(ngModel)]="UserId">
+              <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <label for="AccommodationId">Id of accommodation: </label> </td>
+      <td> <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
+              <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Text}}</option>
+           </select>
+      </td>
+    </tr>
+    <tr>
+      <td> <input type="submit" value="Add"/> </td>
+      <td> <button (click)="onCancle()">Cancle</button> </td>
+    </tr>
+  </table>
 </form>
 
 <h3>Comment</h3>
