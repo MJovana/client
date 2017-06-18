@@ -1,0 +1,23 @@
+<p>
+  user-place works! Id: {{Id}}
+</p>
+
+<h3>Choose a accommmodation</h3>
+<div>
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "Name">Name</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let accommmodation of accommmodations">
+        <td>{{accommmodation.Name}}</td>
+        <td><button (click)='Choose(accommmodation.Id)' type="button">Choose</button></td>
+            <a [routerLink]="['/accommmodation/accommmodation.Id']"></a>
+      </tr>
+    </table>
+</div>

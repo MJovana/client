@@ -18,6 +18,7 @@ export class UserService {
         return this.http.post('http://localhost:54042/api/Account/Register', user, opts);
     }
 
+    //LOGIN U SERVISU
     logIn(user: string, password: string): Observable<any> {
         const headers: Headers = new Headers();
         headers.append('Content-type', 'application/x-www-form-urlencoded');
@@ -25,7 +26,9 @@ export class UserService {
         const opts:RequestOptions = new RequestOptions();
         opts.headers = headers;
        
-        return this.http.post('http://localhost:54042/oauth/token',`username=${user}&password=${password}&grant_type=password`, opts);
+        return this.http.post('http://localhost:54042/oauth/token', `username=${user}&password=${password}&grant_type=password`,opts);
+
+        
     }
 
     getUsers(): Observable<any> {
@@ -40,8 +43,10 @@ export class UserService {
     }
 
     logOut(): void {
-        localStorage.removeItem("token");
-        localStorage.removeItem("role");
+        localStorage.clear();
+        // localStorage.removeItem("token_id");
+        // localStorage.removeItem("role");
+        // localStorage.removeItem("id");
     }
 
   delete(Id: number) {

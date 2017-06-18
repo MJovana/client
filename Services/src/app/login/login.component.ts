@@ -28,21 +28,33 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/home']);
   }
 
+
+//LOGOVANJE
   onSubmitLogin(loginUser: LoginModel, form: NgForm) : void{
-      this.userService.logIn(this.Username,this.Password).subscribe(this.onLogin);
-   // form.reset();
-      
-      if(localStorage.getItem("role")=="Admin")
+      this.userService.logIn(loginUser.Username, loginUser.Password).subscribe(res => this.onLogin(res));
+
+       //GET ITEM NE RADI DOBRO!!!
+      if(localStorage.getItem('role')=="Admin")
       {
          this.router.navigate(['/admin']);
       }
+      else if(localStorage.getItem('role')=="User")
+      {
+        this.router.navigate(['/user']);
+      }
+      else
+      {
+        this.router.navigate(['/home']);
+      }
   }
 
+  //SETOVANJE
   onLogin(response: any){
     
-    localStorage.setItem('token_id', response.json().access_token);
+    localStorage.setItem('token', response.json().access_token);
     localStorage.setItem('role', response.headers.get('Role'));
     localStorage.setItem('user', this.Username);
+    localStorage.setItem('id', response.headers.get('user_id'));
 
     console.log(response.json());
  }

@@ -1,0 +1,24 @@
+<h3>Choose a country</h3>
+
+<div>
+    <table border="1">
+      <tr>
+          <td>
+              <label for = "Name">Name</label>
+          </td>
+          <td>
+              <label for = "Code">Code</label>
+          </td>
+          <td>
+              <label>Option</label>       
+          </td>
+      </tr>
+
+      <tr *ngFor="let country of countries">
+        <td>{{country.Name}}</td>
+        <td>{{country.Code}}</td>
+        <td><button (click)='Choose(country.Id)' type="button">Choose</button></td>
+            <a [routerLink]="['/country/country.Id']"></a>
+       </tr>
+    </table>
+</div>

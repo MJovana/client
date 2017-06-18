@@ -23,6 +23,7 @@ export class AccommodationComponent implements OnInit {
   users : Object[];
   places : Object[];
   accommodationTypes: Object[];
+  id: string;
 
   constructor(private httpAccommodationService: HttpAccommodationService,
               private httpAccommodationTypeService: HttpAccommodationTypeService,
@@ -36,15 +37,15 @@ export class AccommodationComponent implements OnInit {
 
    //id od places
    this.httpPlaceService.getPlaces().subscribe(c => this.places = c.json(), error => 
-   { console.log(error), alert("Unsuccessfull fetch operation")});
+   { console.log(error), alert("Unsuccessfull fetch operation - Place")});
 
    //id od accommodationTypes
    this.httpAccommodationTypeService.getACTypes().subscribe(c => this.accommodationTypes = c.json(), error => 
-   {console.log(error), alert("Unsuccessfull fetch operation")});
+   {console.log(error), alert("Unsuccessfull fetch operation - AcType")});
 
    //id od usera
-    this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
-    { console.log(error), alert("Unsuccessfull fetch operation")});
+    // this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
+    // { console.log(error), alert("Unsuccessfull fetch operation -")});
   }
 
   onCancle() {
@@ -52,8 +53,10 @@ export class AccommodationComponent implements OnInit {
   }
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
-//      newAccommodation.Approved = true;
+      newAccommodation.Approved = true;
  //     newAccommodation.AccommodationTypeId = this.AccommodationId;
+      this.id = localStorage.getItem('id');
+      newAccommodation.UserId = parseInt(this.id);
       this.httpAccommodationService.postAccommodation(newAccommodation).subscribe(this.onPost);
       form.reset();
     }   

@@ -40,6 +40,10 @@ import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { LogoutComponent } from './logout/logout.component';
+import { UserComponent } from './user/user.component';
+import { UserCountryComponent } from './user-country/user-country.component';
+import { UserRegionComponent } from './user-region/user-region.component';
+import { UserPlaceComponent } from './user-place/user-place.component';
 
 
 const Routes = [
@@ -60,6 +64,10 @@ const Routes = [
   {path: "roomr", component: RoomReservationsComponent},
   {path: "user", component: UserService},
   {path: "admin", component: AdminComponent},
+  {path: "appUser", component: UserComponent},
+  {path: "country/:Id", component: UserCountryComponent},
+  {path: "region/:Id", component: UserRegionComponent},
+  {path: "place/:Id", component: UserPlaceComponent},
 ]
 
 
@@ -88,7 +96,11 @@ const Routes = [
     RegistrationComponent,
     LoginComponent,
     AdminComponent,
-    LogoutComponent
+    LogoutComponent,
+    UserComponent,
+     UserCountryComponent,
+     UserRegionComponent,
+     UserPlaceComponent
   ],
   imports: [
     BrowserModule,
