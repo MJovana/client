@@ -2,7 +2,9 @@
   user-place works! Id: {{Id}}
 </p>
 
-<h3>Choose a accommmodation</h3>
+<a [routerLink]="['/appUser']"></a>
+
+<h3>Choose a accommodation</h3>
 <div>
     <table border="1">
       <tr>
@@ -10,14 +12,54 @@
               <label for = "Name">Name</label>
           </td>
           <td>
+              <label for = "Description">Description</label>
+          </td>
+          <td>
+              <label for = "Address">Address</label>
+          </td>
+          <td>
+              <label for = "AvrageGrade">AvrageGrade</label>
+          </td>
+          <td>
+              <label for = "Latitude">Latitude</label>
+          </td>
+          <td>
+              <label for = "Longitude">Longitude</label>
+          </td>
+          <td>
+              <label for = "ImageURL">ImageURL</label>
+          </td>
+          <td>
+              <label for = "Approved">Approved</label>
+          </td>
+          <td>
+              <label for = "AccommodationTypeId">Accommodation Type</label>
+          </td>
+          <td>
+              <label for = "PlaceId">Place </label>
+          </td>
+          <td>
               <label>Option</label>       
           </td>
       </tr>
 
-      <tr *ngFor="let accommmodation of accommmodations">
-        <td>{{accommmodation.Name}}</td>
-        <td><button (click)='Choose(accommmodation.Id)' type="button">Choose</button></td>
-            <a [routerLink]="['/accommmodation/accommmodation.Id']"></a>
+      <tr *ngFor="let accommodation of accommodations">
+        <td>{{accommodation.Name}}</td>
+        <td>{{accommodation.Description}}</td>
+        <td>{{accommodation.Address}}</td>
+        <td>{{accommodation.AvrageGrade}}</td>
+        <td>{{accommodation.Latitude}}</td>
+        <td>{{accommodation.Longitude}}</td>
+        <td>{{accommodation.ImageURL}}</td>
+        <td>{{accommodation.Approved}}</td>
+        <td>{{accommodation.AccommodationTypeId}}</td>
+        <td>{{accommodation.PlaceId}}</td>
+        <td><button (click)='Choose(accommodation.Id)' type="button">Choose</button></td>
+            <a [routerLink]="['/accommodation/accommodation.Id']"></a>
       </tr>
     </table>
+    <tr>
+        <td></td>
+      <td> <button (click)="onCancel()"> Back </button> </td>
+    </tr>
 </div>

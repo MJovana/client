@@ -23,7 +23,7 @@ export class AccommodationTypesComponent implements OnInit {
     {this.accommodationTypes = res.json(); console.log(this.accommodationTypes)});
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
 

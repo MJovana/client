@@ -32,7 +32,7 @@ export class RegionComponent implements OnInit {
 
  }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
 

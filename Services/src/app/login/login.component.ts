@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
      //   this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/home']);
   }
 
@@ -34,18 +34,7 @@ export class LoginComponent implements OnInit {
       this.userService.logIn(loginUser.Username, loginUser.Password).subscribe(res => this.onLogin(res));
 
        //GET ITEM NE RADI DOBRO!!!
-      if(localStorage.getItem('role')=="Admin")
-      {
-         this.router.navigate(['/admin']);
-      }
-      else if(localStorage.getItem('role')=="User")
-      {
-        this.router.navigate(['/user']);
-      }
-      else
-      {
-        this.router.navigate(['/home']);
-      }
+      
   }
 
   //SETOVANJE
@@ -57,6 +46,19 @@ export class LoginComponent implements OnInit {
     localStorage.setItem('id', response.headers.get('user_id'));
 
     console.log(response.json());
+
+    if(localStorage.getItem('role')=="Admin")
+      {
+         this.router.navigate(['/admin']);
+      }
+      else if(localStorage.getItem('role')=="User")
+      {
+        this.router.navigate(['/appUser']);
+      }
+      else
+      {
+        this.router.navigate(['/home']);
+      }
  }
 
   isLoggedIn() : boolean{

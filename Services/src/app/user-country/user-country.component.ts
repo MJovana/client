@@ -22,6 +22,10 @@ export class UserCountryComponent implements OnInit {
   ngOnInit() {
   }
 
+   onCancel() {
+      this.router.navigate(['/appUser']);
+  }
+
   Choose(id: number) {
     this.router.navigate(['/region/' + id]);
   }

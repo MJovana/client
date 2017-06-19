@@ -26,5 +26,8 @@ export class UserComponent implements OnInit {
   Choose(id: number) {
     this.router.navigate(['/country/' + id]);
   }
+  onLogout(){
+    this.router.navigate(['/logout']);
+   }
 
 }

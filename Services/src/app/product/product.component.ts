@@ -28,7 +28,7 @@ export class ProductComponent implements OnInit {
       form.reset(); 
     }    
 
-    onCancle() {
+    onCancel() {
       this.router.navigate(['/admin']);
     }
 

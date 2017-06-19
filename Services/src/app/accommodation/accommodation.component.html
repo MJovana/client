@@ -63,12 +63,12 @@
     </tr>
     <tr>
       <td> <input type="submit" value="Add"/> </td>
-      <td> <button (click)="onCancle()">Cancle</button> </td>
+      <td> <button (click)="onCancel()"> Cancel </button> </td>
     </tr>
   </table>
 </form>
 
-<h3>Accommmodations</h3>
+<h3>Accommodations</h3>
 <div>
     <table border="1">
       <tr>
@@ -80,9 +80,9 @@
           </td>
       </tr>
 
-      <tr *ngFor="let accommmodation of accommmodations">
-        <td>{{accommmodation.Name}}</td>
-        <td><button (click)='deleteAccommmodation(accommmodation.Id)' type="button">Delete</button></td>
+      <tr *ngFor="let accommodation of accommodations">
+        <td>{{accommodation.Name}}</td>
+        <td><button (click)='deleteAccommodation(accommodation.Id)' type="button">Delete</button></td>
       </tr>
     </table>
 </div>

@@ -22,8 +22,12 @@ export class UserPlaceComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCancel() {
+      this.router.navigate(['/appUser']);
+  }
+
   Choose(id: number) {
-    this.router.navigate(['/accommmodation/' + id]);
+    this.router.navigate(['/accommodation/' + id]);
   }
 
   fetchProduct(params: any){

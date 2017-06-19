@@ -20,15 +20,15 @@
       </td>
     </tr>
     <tr>
-      <td> <label for="AccommodationId">Id of accommodation: </label> </td>
+      <td> <label for="AccommodationId">Id of accommodations: </label> </td>
       <td> <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
-              <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Text}}</option>
+            <option *ngFor = "let accommodation of accommodations" value={{accommodation.Id}} >{{accommodation.Id}}</option>
            </select>
       </td>
     </tr>
     <tr>
       <td> <input type="submit" value="Add"/> </td>
-      <td> <button (click)="onCancle()">Cancle</button> </td>
+      <td> <button (click)="onCancel()">Cancel</button> </td>
     </tr>
   </table>
 </form>

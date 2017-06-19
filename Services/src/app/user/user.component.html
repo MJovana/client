@@ -1,5 +1,7 @@
 <h3>Choose a country</h3>
 
+<a [routerLink]="['/logout']"></a>
+
 <div>
     <table border="1">
       <tr>
@@ -21,4 +23,8 @@
             <a [routerLink]="['/country/country.Id']"></a>
        </tr>
     </table>
+<div>
+    <button (click)="onLogout()">
+        Logout</button>
+</div>
 </div>

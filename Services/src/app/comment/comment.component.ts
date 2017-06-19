@@ -19,6 +19,7 @@ export class CommentComponent implements OnInit {
   comment : Comment;
   accommodations : Object[];
   users : Object[];
+  id: string;
 
   constructor(private httpCommentService: HttpCommentService,
               private httpAccommodationService: HttpAccommodationService,
@@ -30,19 +31,21 @@ export class CommentComponent implements OnInit {
     {this.comments = res.json(); console.log(this.comments)});
    
    //id od accommodationa
-    this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
-   { console.log(error), alert("Unsuccessfull fetch operation")});
+   this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
+   {console.log(error), alert("Unsuccessfull fetch operation")});
 
    //id od usera
-   this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
-    { console.log(error), alert("Unsuccessfull fetch operation")});
+   /*this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
+    { console.log(error), alert("Unsuccessfull fetch operation")});*/
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
 
   addComment(newComment: Comment, form: NgForm) : void{
+      this.id = localStorage.getItem('id');
+      newComment.UserId = parseInt(this.id);
       this.httpCommentService.postComment(newComment).subscribe(this.onPost);
       form.reset();
     }    

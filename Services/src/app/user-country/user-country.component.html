@@ -1,4 +1,5 @@
 <h3>Choose a region</h3>
+<a [routerLink]="['/appUser']"></a>
 
 <div>
     <table border="1">
@@ -17,4 +18,8 @@
             <a [routerLink]="['/region/region.Id']"></a>
       </tr>
     </table>
+    <tr>
+        <td></td>
+      <td> <button (click)="onCancel()"> Back </button> </td>
+    </tr>
 </div>

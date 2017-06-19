@@ -44,6 +44,8 @@ import { UserComponent } from './user/user.component';
 import { UserCountryComponent } from './user-country/user-country.component';
 import { UserRegionComponent } from './user-region/user-region.component';
 import { UserPlaceComponent } from './user-place/user-place.component';
+import { UserAccommodationComponent } from './user-accommodation/user-accommodation.component';
+import { UserRoomComponent } from './user-room/user-room.component';
 
 
 const Routes = [
@@ -68,6 +70,8 @@ const Routes = [
   {path: "country/:Id", component: UserCountryComponent},
   {path: "region/:Id", component: UserRegionComponent},
   {path: "place/:Id", component: UserPlaceComponent},
+  {path: "accommodation/:Id", component: UserAccommodationComponent},
+  {path: "room/:Id", component: UserRoomComponent},
 ]
 
 
@@ -100,7 +104,9 @@ const Routes = [
     UserComponent,
      UserCountryComponent,
      UserRegionComponent,
-     UserPlaceComponent
+     UserPlaceComponent,
+     UserAccommodationComponent,
+     UserRoomComponent
   ],
   imports: [
     BrowserModule,

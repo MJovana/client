@@ -32,7 +32,7 @@ export class PlaceComponent implements OnInit {
    {console.log(error), alert("Unsuccessfull fetch operation")});
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
 

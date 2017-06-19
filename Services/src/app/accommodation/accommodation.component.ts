@@ -48,12 +48,12 @@ export class AccommodationComponent implements OnInit {
     // { console.log(error), alert("Unsuccessfull fetch operation -")});
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
-      newAccommodation.Approved = true;
+  //    newAccommodation.Approved = true;
  //     newAccommodation.AccommodationTypeId = this.AccommodationId;
       this.id = localStorage.getItem('id');
       newAccommodation.UserId = parseInt(this.id);

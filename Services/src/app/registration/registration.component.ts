@@ -30,7 +30,7 @@ export class RegistrationComponent implements OnInit {
     //form.resetForm();
   }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/home']);
   }
 

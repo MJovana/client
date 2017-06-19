@@ -16,10 +16,10 @@
       <td> <label for="Timestamp">Timestamp</label> </td>
       <td> <input type="text" name="Timestamp" ngModel> </td>
     </tr>
-    <tr>
+    <!--<tr>
       <td> <label for="RoomId">Id of room: </label> </td>
       <td> <select name="RoomId" id="RoomId" [(ngModel)]="RoomId">
-              <option *ngFor = "let roomReservation of roomReservations" value={{roomReservations.Id}} >{{roomreservations.Id}}</option>
+              <option *ngFor = "let room of rooms" value={{room.Id}} >{{room.Id}}</option>
            </select>
       </td>
     </tr>
@@ -29,10 +29,10 @@
               <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
            </select>
       </td>
-    </tr>
+    </tr>-->
     <tr>
       <td> <input type="submit" value="Add"/> </td>
-      <td> <button (click)="onCancle()">Cancle</button> </td>
+      <td> <button (click)="onCancel()">Cancel</button> </td>
     </tr>
   </table>
 </form>

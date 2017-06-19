@@ -32,7 +32,7 @@ export class RoomComponent implements OnInit {
 
  }
 
-  onCancle() {
+  onCancel() {
       this.router.navigate(['/admin']);
   }
    addRoom(newRoom: Room, form: NgForm) : void{
