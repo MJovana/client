@@ -24,6 +24,8 @@ export class AccommodationComponent implements OnInit {
   places : Object[];
   accommodationTypes: Object[];
   id: string;
+  file: File;
+  ImageURL: File;
 
   constructor(private httpAccommodationService: HttpAccommodationService,
               private httpAccommodationTypeService: HttpAccommodationTypeService,
@@ -42,10 +44,6 @@ export class AccommodationComponent implements OnInit {
    //id od accommodationTypes
    this.httpAccommodationTypeService.getACTypes().subscribe(c => this.accommodationTypes = c.json(), error => 
    {console.log(error), alert("Unsuccessfull fetch operation - AcType")});
-
-   //id od usera
-    // this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
-    // { console.log(error), alert("Unsuccessfull fetch operation -")});
   }
 
   onCancel() {
@@ -53,13 +51,18 @@ export class AccommodationComponent implements OnInit {
   }
 
   addAccommodation(newAccommodation: Accommodation, form: NgForm) : void{
-  //    newAccommodation.Approved = true;
- //     newAccommodation.AccommodationTypeId = this.AccommodationId;
       this.id = localStorage.getItem('id');
       newAccommodation.UserId = parseInt(this.id);
-      this.httpAccommodationService.postAccommodation(newAccommodation).subscribe(this.onPost);
+      this.httpAccommodationService.postAccommodation(newAccommodation, this.file).subscribe(this.onPost);
       form.reset();
     }   
+
+    onPhoto(event: EventTarget) {
+      let eventObj: MSInputMethodContext = <MSInputMethodContext>event;
+      let target: HTMLInputElement = <HTMLInputElement>eventObj.target;
+      let files: FileList = target.files;
+      this.file = files[0];
+    }
 
     deleteAccommodation(id: number) {
       this.httpAccommodationService.delete(id).subscribe(() => {this.refresh(); });

@@ -27,7 +27,7 @@ export class UserAccommodationComponent implements OnInit {
   }
 
   RoomReservation(id: number) {
-    this.router.navigate(['/roomr']);
+    this.router.navigate(['/room/' + id]);
   }
 
   fetchProduct(params: any){

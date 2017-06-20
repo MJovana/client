@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td> <label for="ImageURL">ImageURL</label> </td>
-      <td> <input type="text" name="ImageURL" ngModel> </td>
+      <td> <input type="file" name="ImageURL" id="ImageURL" (change)="onPhoto($event)"> </td>
     </tr>
     <tr>
       <td> <label for="Approved">Approved</label> </td>
@@ -51,13 +51,6 @@
       <td> <label for="AccommodationTypeId">Id of accommodation types: </label> </td>
       <td> <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
               <option *ngFor = "let acType of accommodationTypes" value={{acType.Id}} >{{acType.Name}}</option>
-           </select>
-      </td>
-    </tr>
-    <tr>
-      <td> <label for="UserId">Id of users: </label> </td>
-      <td> <select name="UserId" id="UserId" [(ngModel)]="UserId">
-              <option *ngFor = "let user of users" value={{user.Id}} >{{user.Username}}</option>
            </select>
       </td>
     </tr>

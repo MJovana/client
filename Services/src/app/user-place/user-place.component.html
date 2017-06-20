@@ -1,6 +1,3 @@
-<p>
-  user-place works! Id: {{Id}}
-</p>
 
 <a [routerLink]="['/appUser']"></a>
 
@@ -52,14 +49,16 @@
         <td>{{accommodation.Longitude}}</td>
         <td>{{accommodation.ImageURL}}</td>
         <td>{{accommodation.Approved}}</td>
-        <td>{{accommodation.AccommodationTypeId}}</td>
+        <td>{{accommodation.AccommodationId}}</td>
         <td>{{accommodation.PlaceId}}</td>
         <td><button (click)='Choose(accommodation.Id)' type="button">Choose</button></td>
             <a [routerLink]="['/accommodation/accommodation.Id']"></a>
       </tr>
     </table>
-    <tr>
-        <td></td>
-      <td> <button (click)="onCancel()"> Back </button> </td>
-    </tr>
+    
+    <br>
+    
+    <div>
+      <button (click)="onCancel()"> Back </button>
+    </div>
 </div>

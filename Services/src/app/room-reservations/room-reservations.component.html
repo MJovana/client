@@ -6,33 +6,19 @@
   <table>
      <tr>
       <td> <label for="StartDate">StartDate</label> </td>
-      <td> <input type="text" name="StartDate" ngModel> </td>
+      <td> <input type="date" name="StartDate" ngModel> </td>
     </tr>
     <tr>
       <td> <label for="EndDate">EndDate</label> </td>
-      <td> <input type="text" name="EndDate" ngModel> </td>
+      <td> <input type="date" name="EndDate" ngModel> </td>
     </tr>
     <tr>
       <td> <label for="Timestamp">Timestamp</label> </td>
-      <td> <input type="text" name="Timestamp" ngModel> </td>
+      <td> <input type="time" name="Timestamp" ngModel> </td>
     </tr>
-    <!--<tr>
-      <td> <label for="RoomId">Id of room: </label> </td>
-      <td> <select name="RoomId" id="RoomId" [(ngModel)]="RoomId">
-              <option *ngFor = "let room of rooms" value={{room.Id}} >{{room.Id}}</option>
-           </select>
-      </td>
-    </tr>
-	  <tr>
-      <td> <label for="UserId">Id of user: </label> </td>
-      <td> <select name="UserId" id="UserId" [(ngModel)]="UserId">
-              <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
-           </select>
-      </td>
-    </tr>-->
     <tr>
       <td> <input type="submit" value="Add"/> </td>
-      <td> <button (click)="onCancel()">Cancel</button> </td>
+      <td> <button (click)="onCancel()">Back</button> </td>
     </tr>
   </table>
 </form>
@@ -48,14 +34,28 @@
               <label for = "UserId">UserId</label>
           </td>
           <td>
+              <label for = "StartDate">StartDate</label>
+          </td>
+          <td>
+              <label for = "EndDate">EndDate</label>
+          </td>
+          <td>
+              <label for = "Timestamp">Timestamp</label>
+          </td>
+          <td>
               <label>Option</label>       
           </td>
       </tr>
 
-      <tr *ngFor="let roomReservation of roomReservations">
-        <td>{{roomReservation.RoomId}}</td>
-        <td>{{roomReservation.UserId}}</td>
-        <td><button (click)='deleteRoomReservation(roomReservation.Id)' type="button">Delete</button></td>
+      <tr *ngFor="let roomr of roomRs">
+        <td>{{roomr.RoomId}}</td>
+        <td>{{roomr.UserId}}</td>
+        <td>{{roomr.StartDate}}</td>
+        <td>{{roomr.EndDate}}</td>
+        <td>{{roomr.Timestamp}}</td>
+        <td><button (click)='deleteRoomReservation(roomr.Id)' type="button">Delete</button></td>
+        <td><button (click)='CommentRoom(roomr.Id)' type="button">Comment</button></td>
+            <a [routerLink]="['/roomr/roomr.Id']"></a>
       </tr>
     </table>
 </div>

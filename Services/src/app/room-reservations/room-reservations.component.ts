@@ -21,7 +21,7 @@ export class RoomReservationsComponent implements OnInit {
   rooms : Object[];
   users : Object[];
   id: string;
-  idRoom: string;
+  Id: number = -1;
 
   constructor(private httpRoomReservationService: HttpRoomReservationService,
               private httpRoomService: HttpRoomService,
@@ -34,40 +34,27 @@ export class RoomReservationsComponent implements OnInit {
   ngOnInit() {
    this.httpRoomReservationService.getReservations().subscribe((res: Response) =>  
    {this.roomRs = res.json(); console.log(this.roomRs)});
-
-  //   this.httpRoomService.getRooms().subscribe(c => this.rooms = c.json(), error => 
-  //  { console.log(error), alert("Unsuccessfull fetch operation")});
 }
 
   fetchProduct(params: any){
-    this.idRoom = params["Id"];
-    /*this.httpRoomService.getRooms().subscribe(
-      (res: Response) => 
-        {
-          this.roomAll = res.json();
-          
-          for (let r of this.roomAll) {
-            if(r.AccommodationId == this.Id) {
-              this.rooms.push(r)
-              console.log(r); 
-            }
-          }
-        }
-    );*/
+    this.Id = params["Id"];
   }
 
   onCancel() {
-    //  this.router.navigate(['/accommodation/' + this.idRoom]);
-   //   this.router.navigate(['/appUser']);
+      this.router.navigate(['/appUser']);
   }
   
    addRoomReservation(newRoomReservation: RoomReservation, form: NgForm) : void{
-      newRoomReservation.RoomId = parseInt(this.idRoom);
+      newRoomReservation.RoomId = this.Id;
       this.id = localStorage.getItem('id');
       newRoomReservation.UserId = parseInt(this.id);
       this.httpRoomReservationService.postRoomReservation(newRoomReservation).subscribe(this.onPost);
       form.reset();
     }    
+
+    CommentRoom(id: number) {
+      this.router.navigate(['/roomr/' + id]);   
+    }
 
     deleteRoomReservation(id: number) {
       this.httpRoomReservationService.delete(id).subscribe(() => {this.refresh(); });

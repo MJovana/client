@@ -33,14 +33,10 @@ export class CommentComponent implements OnInit {
    //id od accommodationa
    this.httpAccommodationService.getAC().subscribe(c => this.accommodations = c.json(), error => 
    {console.log(error), alert("Unsuccessfull fetch operation")});
-
-   //id od usera
-   /*this.userService.getUsers().subscribe(c => this.users = c.json(), error => 
-    { console.log(error), alert("Unsuccessfull fetch operation")});*/
   }
 
   onCancel() {
-      this.router.navigate(['/admin']);
+      this.router.navigate(['/appUser']);
   }
 
   addComment(newComment: Comment, form: NgForm) : void{

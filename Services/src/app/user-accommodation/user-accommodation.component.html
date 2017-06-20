@@ -1,6 +1,4 @@
-<p>
-  user-accommodation works! Id: {{Id}}
-</p>
+
 <a [routerLink]="['/appUser']"></a>
 
 <h3>Choose room</h3>
@@ -34,11 +32,13 @@
         <td>{{room.PricePerNight}}</td>
         <td>{{room.AccommodationId}}</td>
         <td><button (click)='RoomReservation(room.Id)' type="button">Reservation</button></td>
-            <a [routerLink]="['/roomr']"></a>
+            <a [routerLink]="['/room/room.Id']"></a>
       </tr>
     </table>
-    <tr>
-        <td></td>
-      <td> <button (click)="onCancel()"> Back </button> </td>
-    </tr>
+
+    <br>
+    
+    <div>
+      <button (click)="onCancel()"> Back </button>
+    </div>
 </div>

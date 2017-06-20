@@ -12,13 +12,6 @@
       <td> <label for="Text">Text</label> </td>
       <td> <input type="text" name="Text" ngModel> </td>
     </tr>
-   <tr>
-      <td> <label for="UserId">Id user: </label> </td>
-      <td> <select name="UserId" id="UserId" [(ngModel)]="UserId">
-              <option *ngFor = "let user of users" value={{user.Id}} >{{user.Id}}</option>
-           </select>
-      </td>
-    </tr>
     <tr>
       <td> <label for="AccommodationId">Id of accommodations: </label> </td>
       <td> <select name="AccommodationId" id="AccommodationId" [(ngModel)]="AccommodationId">
@@ -28,7 +21,7 @@
     </tr>
     <tr>
       <td> <input type="submit" value="Add"/> </td>
-      <td> <button (click)="onCancel()">Cancel</button> </td>
+      <td> <button (click)="onCancel()">Back</button> </td>
     </tr>
   </table>
 </form>
@@ -38,7 +31,16 @@
     <table border="1">
       <tr>
           <td>
-              <label for = "Text">Comment:</label>
+              <label for = "UserId">Id of User</label>
+          </td>
+          <td>
+              <label for = "Grade">Grade</label>
+          </td>
+          <td>
+              <label for = "Text">Comment</label>
+          </td>
+          <td>
+              <label for = "AccommodationId">Id of accommodation type:</label>
           </td>
           <td>
               <label>Option</label>       
@@ -46,7 +48,10 @@
       </tr>
 
       <tr *ngFor="let comment of comments">
+        <td>{{comment.UserId}}</td>
+        <td>{{comment.Grade}}</td>
         <td>{{comment.Text}}</td>
+        <td>{{comment.AccommodationId}}</td>
         <td><button (click)='deleteComment(comment.Id)' type="button">Delete</button></td>
       </tr>
     </table>
