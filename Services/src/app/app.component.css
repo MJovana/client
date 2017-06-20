@@ -1,6 +1,26 @@
 
-body{
-    background-image: url(img/img.jpg) no-repeat;  
+html{
+  height: 100%;
+}
+ #reg { 
+    background-clip: reg; 
+   background: url(img/img.jpg)no-repeat center top; ;
+  width: 100% auto;
+  padding: 1em 0;
+  
+  
+}
+.nomargin { margin: 0; }
+body { font-family: Arial;}
+
+/*body{
+    background: url(img/img.jpg)no-repeat center top;
     background-size: cover;
-    font-family: Arial;
-    }
+    
+     min-height: 100%;
+    }*/
+
+ 
+
+
+     

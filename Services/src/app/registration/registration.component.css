@@ -1,0 +1,11 @@
+#reg { background-clip: reg; }
+
+div { 
+  background-color: greenyellow ;
+  width: 350px;
+  padding: 1em 0;
+  
+  
+}
+.nomargin { margin: 0; }
+body { font-family: sans-serif; }

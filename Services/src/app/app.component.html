@@ -1,26 +1,51 @@
-<h1>
-  {{title}}
-</h1>
-<h2>
-  {{title2}}
-</h2>
+<!DOCTYPE html>
+<html >
+<head>
+</head>
+ 
+  <body> 
+    
+     
+      <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+                 <a class="navbar-brand" href="#">Booking</a>
+            <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#"><li><a [routerLink]="['/registration']">Registration</a></li></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><li><a [routerLink]="['/login']">Login</a></li></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#"><td>Home </td></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About First Login </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Please registration first<br>
+                                  if you are here for the first time. </a>
+                  </div>
+                </li>
+              </ul>     
+            </div>      
+      </nav>
+      <div id="reg">
+            <div class="container" >
+                  <h1>Accommodation Booking</h1>
+                  <p class="lead">Find best place for vacation here<br><br><br></p>            
+                <router-outlet></router-outlet>  
+            </div>
 
-
-  <!--<ol>-->
-    <!--<li><a [routerLink]="['/home']">Home</a></li>    -->
-    <!--<li><a [routerLink]="['/registration']">Registration</a></li>
-    <li><a [routerLink]="['/login']">Login</a></li>-->
-
-    <!--<li><a [routerLink]="['/product']">Contry</a></li>    
-    <li><a [routerLink]="['/region']">Region</a></li>    
-    <li><a [routerLink]="['/place']">Place</a></li>-->
-    <!--<li><a [routerLink]="['/product/1']">One contry</a></li>-->
-    <!--<li><a [routerLink]="['/acTypes']">Accommodation type</a></li>    
-    <li><a [routerLink]="['/ac']">Accommodation</a></li>
-    <li><a [routerLink]="['/room']">Room</a></li>
-    <li><a [routerLink]="['/comment']">Comment</a></li>
-    <li><a [routerLink]="['/roomr']">Room reservations</a></li>-->
-  <!--</ol>-->
-
-  <router-outlet></router-outlet>
+            <footer class="footer">
+                <div class="container">
+                  <br><br><br><br><br><br><br><br><p class="text-muted">t </p>
+                </div>
+          </footer>
+    </div>
+  </body>
+ 
+</html>
 
