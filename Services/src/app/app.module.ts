@@ -72,6 +72,7 @@ const Routes = [
   {path: "place/:Id", component: UserPlaceComponent},
   {path: "accommodation/:Id", component: UserAccommodationComponent},
   {path: "room/:Id", component: RoomReservationsComponent},
+  {path: "roomr/:Id", component: CommentComponent},
 ]
 
 

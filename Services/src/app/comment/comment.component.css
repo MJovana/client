@@ -1,0 +1,15 @@
+#reg { background-clip: reg; }
+
+div { 
+  background-color: whitesmoke ;
+  width: 450px;
+  padding: 1em 0;
+  
+  
+}
+button{
+    background-color: blueviolet;
+}
+
+.nomargin { margin: 0; }
+body { font-family: sans-serif; }

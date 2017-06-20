@@ -20,12 +20,18 @@ export class CommentComponent implements OnInit {
   accommodations : Object[];
   users : Object[];
   id: string;
+  Id: number =-1;
 
   constructor(private httpCommentService: HttpCommentService,
               private httpAccommodationService: HttpAccommodationService,
               private userService: UserService,
-              private router: Router) { }
-
+              private router: Router,
+              private activatedRoute : ActivatedRoute) { 
+                activatedRoute.params.subscribe( params => {this.fetchProduct(params)})
+              }
+  fetchProduct(params: any){
+    this.Id =params["Id"];
+  }
   ngOnInit() {
     this.httpCommentService.getComments().subscribe((res: Response) => 
     {this.comments = res.json(); console.log(this.comments)});
