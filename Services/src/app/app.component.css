@@ -1,5 +1,6 @@
 
 html{
+  width: 100%;
   height: 100%;
 }
  #reg { 
@@ -7,11 +8,24 @@ html{
    background: url(img/img.jpg)no-repeat center top; ;
   width: 100% auto;
   padding: 1em 0;
+  height: 100%;
   
   
 }
+h1{
+  color: burlywood;
+  font-size:44px;
+}
+
+h2{
+  font-size: 25px;
+  background-color: lightgoldenrodyellow;
+  width: 400px;
+}
 .nomargin { margin: 0; }
-body { font-family: Arial;}
+body { font-family: Arial;
+   width: 100% auto;
+   height: 800px; }
 
 /*body{
     background: url(img/img.jpg)no-repeat center top;

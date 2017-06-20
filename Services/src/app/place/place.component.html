@@ -1,7 +1,11 @@
+<html>
+    <div id="reg">
+    <body >
+
 <a [routerLink]="['/admin']"></a>
 
 <h3>Add place</h3>
-
+<div>
 <form #f="ngForm" (ngSubmit)="addPlace(f.value, f)">
   <table>
      <tr>
@@ -22,7 +26,7 @@
   </table>
 </form>
 
-
+</div>
 <h3>Place</h3>
 <div>
     <table border="1">
@@ -41,3 +45,7 @@
       </tr>
     </table>
 </div>
+
+</body>
+   </div>
+</html>

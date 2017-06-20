@@ -1,7 +1,12 @@
+<html>
+    <div id="reg">
+    <body >
+
+
 <a [routerLink]="['/admin']"></a>
 
 <h3>Add region</h3>
-
+<div>
 <form #f="ngForm" (ngSubmit)="addRegion(f.value, f)">
   <table>
      <tr>
@@ -21,6 +26,7 @@
     </tr>
   </table>
 </form>
+</div>
 
 <h3>Region</h3>
 <div>
@@ -40,3 +46,6 @@
       </tr>
     </table>
 </div>
+</body>
+   </div>
+</html>

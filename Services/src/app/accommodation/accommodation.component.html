@@ -1,7 +1,11 @@
+<html>
+    <div id="reg">
+    <body >
+
 <a [routerLink]="['/admin']"></a>
 
 <h3>Add accommodation</h3>
-
+<div>
 <form #f="ngForm" (ngSubmit)="addAccommodation(f.value, f)">
   <table>
      <tr>
@@ -60,7 +64,7 @@
     </tr>
   </table>
 </form>
-
+</div>
 <h3>Accommodations</h3>
 <div>
     <table border="1">
@@ -79,3 +83,6 @@
       </tr>
     </table>
 </div>
+</body>
+   </div>
+</html>

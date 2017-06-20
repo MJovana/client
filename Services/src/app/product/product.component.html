@@ -1,7 +1,11 @@
+<html>
+    <div id="reg">
+    <body >
+
 <a [routerLink]="['/admin']"></a>
 
 <h3>Add country</h3>
-
+<div>
 <form #f="ngForm" (ngSubmit)="addCountry(f.value, f)">
     <table>
      <tr>
@@ -18,7 +22,7 @@
     </tr>
     </table>
 </form>
-
+</div>
 <h3>Countries</h3>
 <div>
     <table border="1">
@@ -42,4 +46,6 @@
     </table>
 </div>
 
-
+</body>
+   </div>
+</html>

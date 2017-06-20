@@ -1,7 +1,11 @@
+<html>
+    <div id="reg">
+    <body >
+
 <a [routerLink]="['/admin']"></a>
 
 <h3>Add room</h3>
-
+<div>
 <form #f="ngForm" (ngSubmit)="addRoom(f.value, f)">
   <table>
      <tr>
@@ -33,7 +37,7 @@
     </tr>
   </table>
 </form>
-
+</div>
 <h3>Room</h3>
 <div>
     <table border="1">
@@ -52,3 +56,7 @@
       </tr>
     </table>
 </div>
+
+</body>
+   </div>
+</html>

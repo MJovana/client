@@ -1,0 +1,22 @@
+#reg { background-clip: reg; }
+
+div { 
+  background-color: greenyellow ;
+  width: 350px;
+  padding: 1em 0;
+  
+  
+}
+button{
+    color: black;
+    background-color: blueviolet ;
+}
+
+li{
+    color: black;
+}
+a{
+    color: black;
+}
+.nomargin { margin: 0; }
+body { font-family: sans-serif; }
